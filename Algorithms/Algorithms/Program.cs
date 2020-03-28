@@ -20,23 +20,26 @@ namespace Algorithms
             SingleLinkedList list = new SingleLinkedList();
             list.Insert(1);
             list.Insert(2);
-            list.Insert(3);
+            list.Insert(2);
+            list.Insert(2);
             list.Insert(4);
             list.Insert(5);
             list.Insert(6);
             list.Insert(7);
-            list.Insert(8);
-            list.Insert(9);
+            list.Insert(7);
+            list.Insert(7);
             list.Insert(10);
 
             //list.Print(list.head);
 
-
-            var head2 = list.Split();
-
+            list.RemoveDuplicateFromSorted();
             list.Print(list.head);
-            Console.WriteLine();
-            list.Print(head2);
+
+            //var head2 = list.Split();
+
+            //list.Print(list.head);
+            //Console.WriteLine();
+            //list.Print(head2);
             Console.Read();
         }
     }

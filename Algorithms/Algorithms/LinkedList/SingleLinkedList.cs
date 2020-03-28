@@ -70,6 +70,22 @@ namespace Algorithms.LinkedList
             return slow;
         }
 
+        public void RemoveDuplicateFromSorted()
+        {
+            var current = head;
+            
+            if (current == null)
+                return;
 
+            while (current.next != null)
+            {
+                if(current.value == current.next.value)
+                {
+                    current.next = current.next.next;
+                }
+                else
+                    current = current.next;
+            }
+        }
     }
 }
