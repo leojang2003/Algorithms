@@ -147,6 +147,14 @@ namespace Algorithms.LinkedList
             }
             previous.next = even;
             head = dummy.next;
-        }        
+        }
+
+        // Construct a linked list by merging alternate nodes of two given lists
+        // Given two linked lists, merge their nodes together to make one list, taking nodes alternately between the two lists. If either list runs out, all the nodes should be taken from the other list.
+        // {1,2,3}, {7,13,1} -> {1,7,2,13,3,1}
+        public Node MergeAlternatingNodes(Node head2)
+        {            
+            
+        }
     }
 }
