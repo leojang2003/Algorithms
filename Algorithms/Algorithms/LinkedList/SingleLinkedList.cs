@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +38,8 @@ namespace Algorithms.LinkedList
                 Console.Write(" ");
                 current = current.next;
             }
+
+            Console.Write(" EOS");
         }
 
         public Node Split()
@@ -87,5 +89,64 @@ namespace Algorithms.LinkedList
                     current = current.next;
             }
         }
+        
+        // Move front node of given linked list to the front of another list
+        public Node MoveFrontToAnotherList(Node anotherHead)
+        {
+            if (head == null)
+                return anotherHead;
+
+            var temp = head.next;
+
+            head.next = anotherHead;
+            var head2 = head;
+
+            head = temp;
+            return head2;
+        
+        }
+
+        // Move even nodes to the end of linked list in reverse order
+        // Rearrange the give linked list such that every even node will be moved to end of the list
+        // in reverse order
+        // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+        // 1 -> 3 -> 5 -> 7 -> 6 -> 4 -> 2
+        public void MoveEvenNodeToEndReverseOrder()
+        {
+            // Insert Dummy Node
+            var dummy = new Node(0);
+            dummy.next = head;
+
+            var current = head;
+            Node even = null;
+            Node previous = dummy;            
+
+            while(current != null)
+            {
+                if(current.value % 2 == 0)
+                {
+                    var next = current.next;
+                    previous.next = next;
+                    if (even == null)
+                    {
+                        even = current;
+                        even.next = null; // must terminate even list                     
+                    }
+                    else
+                    {                        
+                        current.next = even;
+                        even = current;                        
+                    }                    
+                    current = next;
+                }
+                else
+                {
+                    previous = current;
+                    current = current.next;
+                }                
+            }
+            previous.next = even;
+            head = dummy.next;
+        }        
     }
 }
