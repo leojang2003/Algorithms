@@ -187,5 +187,19 @@ namespace Algorithms.LinkedList
             if (current2 != null)
                 current.next = current2;            
         }
+
+        // Merge two sorted linked lists into one
+        // Write a function that takes two lists, each of which is sorted in increasing order, 
+        // and merges the two together into one list which is in increasing order and return it.
+        // {1,3,5} {2,4,6,7} -> {1,2,3,4,5,6,7}
+        // The problem can be solved either iteratively or recursively.
+        // There are many cases to deal with: either ．a・ or ．b・ may be empty, 
+        // during processing either ．a・ or ．b・ may run out first, 
+        // and finally there・s the problem of starting the result list empty, 
+        // and building it up while going through ．a・ and ．b・.
+        public void MergeTwoSortedList(Node head, Node head2)
+        {
+
+        }
     }
 }
