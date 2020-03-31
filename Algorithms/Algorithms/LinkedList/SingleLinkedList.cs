@@ -152,9 +152,40 @@ namespace Algorithms.LinkedList
         // Construct a linked list by merging alternate nodes of two given lists
         // Given two linked lists, merge their nodes together to make one list, taking nodes alternately between the two lists. If either list runs out, all the nodes should be taken from the other list.
         // {1,2,3}, {7,13,1} -> {1,7,2,13,3,1}
-        public Node MergeAlternatingNodes(Node head2)
-        {            
-            
+        public void MergeAlternatingNodes(Node head2)
+        {
+            var current = head;
+
+            var current2 = head2;
+
+            // (debug found error) must check if list1 or list2 is empty 
+            if (current == null)
+            {
+                head = current2;
+                return;
+            }
+
+            if (current2 == null)
+                return;
+
+            while(current.next != null)
+            {
+                var next = current.next;
+                var next2 = current2.next;
+
+                if (current2 != null)
+                {
+                    current.next = current2;
+                    current2.next = next;
+                    current = current.next.next;
+                    current2 = next2;
+                }
+                else
+                    return;
+            }
+
+            if (current2 != null)
+                current.next = current2;            
         }
     }
 }
