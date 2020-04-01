@@ -193,13 +193,50 @@ namespace Algorithms.LinkedList
         // and merges the two together into one list which is in increasing order and return it.
         // {1,3,5} {2,4,6,7} -> {1,2,3,4,5,6,7}
         // The problem can be solved either iteratively or recursively.
-        // There are many cases to deal with: either ¡¥a¡¦ or ¡¥b¡¦ may be empty, 
-        // during processing either ¡¥a¡¦ or ¡¥b¡¦ may run out first, 
-        // and finally there¡¦s the problem of starting the result list empty, 
-        // and building it up while going through ¡¥a¡¦ and ¡¥b¡¦.
-        public void MergeTwoSortedList(Node head, Node head2)
+        // There are many cases to deal with: either â€˜aâ€™ or â€˜bâ€™ may be empty, 
+        // during processing either â€˜aâ€™ or â€˜bâ€™ may run out first, 
+        // and finally thereâ€™s the problem of starting the result list empty, 
+        // and building it up while going through â€˜aâ€™ and â€˜bâ€™.
+        public void MergeTwoSortedList(Node head2)
         {
+            var list = new Node(0);
+            Node current = head;
+            Node current2 = head2;
+            Node currentNext = null;
+            Node current2Next = null;
+            Node newCurrent = list; // Debug found error, need to add pointer to new list
 
+            if (current == null)
+                head = current2;
+
+            if (current2 == null)
+                return;
+
+            while(current != null && current2 != null)
+            {
+                if(current.value < current2.value)
+                {
+                    currentNext = current.next;
+                    newCurrent.next = current; // 
+                    current.next = null;
+                    current = currentNext;
+                }
+                else
+                {
+                    current2Next = current2.next;
+                    newCurrent.next = current2;
+                    current2.next = null;
+                    current2 = current2Next;
+                }
+                newCurrent = newCurrent.next;
+            }
+
+            if (current == null)
+                newCurrent.next = current2;
+            if (current2 == null)
+                newCurrent.next = current;
+
+            head = list.next;
         }
     }
 }
