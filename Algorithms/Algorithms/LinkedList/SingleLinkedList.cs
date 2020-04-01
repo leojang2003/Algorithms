@@ -217,14 +217,14 @@ namespace Algorithms.LinkedList
                 if(current.value < current2.value)
                 {
                     currentNext = current.next;
-                    newCurrent.next = current; // 
+                    newCurrent.next = current; // Debug found error, need to add pointer to new list
                     current.next = null;
                     current = currentNext;
                 }
                 else
                 {
                     current2Next = current2.next;
-                    newCurrent.next = current2;
+                    newCurrent.next = current2; // Debug found error, need to add pointer to new list
                     current2.next = null;
                     current2 = current2Next;
                 }
