@@ -16,8 +16,28 @@ namespace Algorithms
             //SplitLinkedList();
             //MoveHeadToAnotherList();
             //MoveEvenNodeToEndReverseOrder();
-            MergeAlternatingNodes();
+            //MergeAlternatingNodes();
+            MergeTwoSortedList();
             Console.ReadKey();            
+        }
+
+        public static void MergeTwoSortedList()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(1);
+            list.Insert(3);
+            list.Insert(4);
+            list.Insert(6);
+
+            SingleLinkedList list2 = new SingleLinkedList();
+            list2.Insert(2);
+            list2.Insert(5);
+            list2.Insert(10);
+
+            list.MergeTwoSortedList(list2.head);
+
+            list.Print(list.head);
+            Console.WriteLine();
         }
 
         public static void MergeAlternatingNodes()
