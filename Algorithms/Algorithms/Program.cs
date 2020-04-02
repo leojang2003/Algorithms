@@ -12,14 +12,18 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
+            SortingTest.Test();
+
             //RemoveDuplicateFromSorted();
             //SplitLinkedList();
             //MoveHeadToAnotherList();
             //MoveEvenNodeToEndReverseOrder();
             //MergeAlternatingNodes();
-            MergeTwoSortedList();
+            //MergeTwoSortedList();
             Console.ReadKey();            
         }
+
+        
 
         public static void MergeTwoSortedList()
         {

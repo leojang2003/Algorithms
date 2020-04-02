@@ -244,6 +244,7 @@ namespace Algorithms.LinkedList
 
         }
 
+        // Intersection of two given sorted linked lists
         //Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists. 
         // The new list should be made with its own memory ¡X the original lists should not be changed.
         // First List  : 1 -> 4 -> 7 -> 10 -> null

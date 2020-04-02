@@ -12,8 +12,9 @@ namespace Algorithms
         {
             for(int i = 0; i < source.Length; i++)
             {
-                Console.WriteLine(source[i]);
+                Console.Write(source[i] + " ");
             }
+            Console.WriteLine("END");
         }
     }
 }
