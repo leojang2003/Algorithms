@@ -10,7 +10,7 @@ namespace Algorithms.Sort
     {
         public static int[] Sort(int[] input)
         {
-            // empty string return
+            // Debug found error empty string return
             if (input.Length == 0)
                 return input;
 

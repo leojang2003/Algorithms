@@ -10,10 +10,18 @@ namespace Algorithms.Sort
     {
         public static void Test()
         {
-            MergeSortTest();
+            //MergeSortTest();
+            MergeSortTest2();
         }
 
-        private static void MergeSortTest()
+        private static void MergeSortTest2()
+        {
+            int[] array = { 3, 1, 6, 5, 2, 9, 4, 7, 20 };
+            MergeSortBook.Sort(array, 0, 8);
+            Printer.Print(array);
+        }
+
+            private static void MergeSortTest()
         {
             int[] array = { 3, 1, 6, 5, 2, 9, 4, 7, 20 };
             Printer.Print(array);
