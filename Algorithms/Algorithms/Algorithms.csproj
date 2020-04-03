@@ -49,7 +49,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sort\InsertionSort.cs" />
-    <Compile Include="Sort\MergeSort\MergeSort.cs" />
+    <Compile Include="Sort\MergeSort\MergeSort-Leo.cs" />
     <Compile Include="Sort\MergeSort\MergeSort-Book.cs" />
     <Compile Include="Sort\MergeSort\MergeSort-Cormen.cs" />
     <Compile Include="Sort\SelectionSort.cs" />

@@ -11,7 +11,16 @@ namespace Algorithms.Sort
         public static void Test()
         {
             //MergeSortTest();
-            MergeSortTest2();
+            //MergeSortTest2();
+            MergeSortTest3();
+        }
+
+        private static void MergeSortTest3()
+        {
+            //double[] array = { 3, 1, 6, 5, 2, 9, 4, 7, 20 };
+            double[] array = { 3, 3 };
+            MergeSortCormen.Sort(array, 0, 1);
+            Printer.Print(array);
         }
 
         private static void MergeSortTest2()

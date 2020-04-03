@@ -16,5 +16,14 @@ namespace Algorithms
             }
             Console.WriteLine("END");
         }
+
+        public static void Print(double[] source)
+        {
+            for (int i = 0; i < source.Length; i++)
+            {
+                Console.Write(source[i] + " ");
+            }
+            Console.WriteLine("END");
+        }
     }
 }
