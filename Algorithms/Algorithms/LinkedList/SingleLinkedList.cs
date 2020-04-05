@@ -281,5 +281,28 @@ namespace Algorithms.LinkedList
 
             return dummy.next;
         }
+
+        //   Input : 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
+        //   Output : 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> null
+        public Node ReverseLinkedList()
+        {
+            var dummy = new Node(-1);
+            
+            if (head == null)
+                return head;
+
+            var current = head;
+
+            while(current != null)
+            {
+                var node = new Node(current.value);
+                var temp = dummy.next;
+                dummy.next = node;
+                node.next = temp;
+                current = current.next;
+            }
+
+            return dummy.next;
+        }
     }
 }

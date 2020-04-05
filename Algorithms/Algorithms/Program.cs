@@ -20,8 +20,26 @@ namespace Algorithms
             //MoveEvenNodeToEndReverseOrder();
             //MergeAlternatingNodes();
             //MergeTwoSortedList();
-            IntersectionOfTwoGivenSortedLinkedLists();
+            //IntersectionOfTwoGivenSortedLinkedLists();
+            ReverseLinkedList();
             Console.ReadKey();            
+        }
+
+        public static void ReverseLinkedList()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(1);
+            list.Insert(3);
+            list.Insert(4);
+            list.Insert(5);
+            list.Insert(6);
+            list.Insert(7);
+            list.Insert(10); 
+
+            var result = list.ReverseLinkedList();
+
+            list.Print(result);
+            Console.WriteLine();
         }
 
         public static void IntersectionOfTwoGivenSortedLinkedLists()
