@@ -239,20 +239,47 @@ namespace Algorithms.LinkedList
             head = list.next;
         }
 
-        public void MergeSortGivenLinkedList()
+        public void MergeSortGivenLinkedList(Node head2)
         {
-
+            
         }
 
         // Intersection of two given sorted linked lists
         //Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists. 
         // The new list should be made with its own memory ¡X the original lists should not be changed.
-        // First List  : 1 -> 4 -> 7 -> 10 -> null
-        // Second List : 2 -> 4 -> 6 -> 8 -> 10 -> null
+        // First List  : 1 -> 3 - > 4 -> 5 -> 6 -> 7 -> 10 -> null
+        // Second List : 3 -> 4 -> 6 -> 8 -> 10 -> null
         // Output :  4 -> 10 -> null
-        public void IntersectionOfTwoGivenSortedLinkedLists(Node head2)
+        public Node IntersectionOfTwoGivenSortedLinkedLists(Node head2)
         {
+            Node current = head;
+            Node current2 = head2;
+            
+            var dummy = new Node(-1); // use dummy node;            
+            var last = dummy; // Debug found error
 
+            while (current != null && current2 != null)
+            {
+                if (current.value == current2.value)
+                {
+                    var node = new Node(current.value);
+                    last.next = node;   // Debug found error
+                    last = node;   // Debug found error
+
+                    current = current.next;
+                    current2 = current2.next;
+                }
+                else if (current.value < current2.value)
+                {
+                    current = current.next;
+                }
+                else
+                {
+                    current2 = current2.next;
+                }
+            }
+
+            return dummy.next;
         }
     }
 }

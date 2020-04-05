@@ -12,7 +12,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            SortingTest.Test();
+            //SortingTest.Test();
 
             //RemoveDuplicateFromSorted();
             //SplitLinkedList();
@@ -20,10 +20,35 @@ namespace Algorithms
             //MoveEvenNodeToEndReverseOrder();
             //MergeAlternatingNodes();
             //MergeTwoSortedList();
+            IntersectionOfTwoGivenSortedLinkedLists();
             Console.ReadKey();            
         }
 
-        
+        public static void IntersectionOfTwoGivenSortedLinkedLists()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(1);
+            list.Insert(3);
+            list.Insert(4);
+            list.Insert(5);
+            list.Insert(6);
+            list.Insert(7);
+            list.Insert(10);
+
+            SingleLinkedList list2 = new SingleLinkedList();
+            list2.Insert(3);
+            list2.Insert(4);
+            list2.Insert(6);
+            list2.Insert(8);
+            list2.Insert(10);
+            list2.Insert(12);
+            list2.Insert(14);
+
+            var result = list.IntersectionOfTwoGivenSortedLinkedLists(list2.head);
+
+            list.Print(result);
+            Console.WriteLine();
+        }
 
         public static void MergeTwoSortedList()
         {
