@@ -304,5 +304,42 @@ namespace Algorithms.LinkedList
 
             return dummy.next;
         }
+
+        // Reverse every group of k nodes in given linked list
+        // Given a linked list, reverse every adjacent group of k nodes in it where k is given positive integer.
+        // Input List: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> null
+        // For k = 3 Output: 3 -> 2 -> 1 -> 6 -> 5 -> 4 -> 8 -> 7 -> null
+        // For k = 2 Output: 2 -> 1 -> 4 -> 3 -> 6 -> 5 -> 8 -> 7 -> null
+        public Node ReverseEveryGroupOfKNodes(int k)
+        {
+            var dummy = new Node(-1);
+            var groupHead = dummy; // save last node of each group
+            var temp = dummy;
+            var current = head;
+            var count = 1;
+
+            while(current != null && count <= k)
+            {
+                var node = new Node(current.value);
+                var tmp = groupHead.next;
+                groupHead.next = node;
+                node.next = tmp;
+
+                if (count == 1)
+                    temp = node;
+
+                count++;
+
+                if (count > k)
+                {
+                    count = 1;
+                    groupHead = temp;
+                }                    
+
+                current = current.next;
+            }
+
+            return dummy.next;
+        }
     }
 }

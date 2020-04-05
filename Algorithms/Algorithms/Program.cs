@@ -21,8 +21,29 @@ namespace Algorithms
             //MergeAlternatingNodes();
             //MergeTwoSortedList();
             //IntersectionOfTwoGivenSortedLinkedLists();
-            ReverseLinkedList();
+            //ReverseLinkedList();
+            ReverseEveryGroupOfKNodes();
             Console.ReadKey();            
+        }
+
+        public static void ReverseEveryGroupOfKNodes()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(1);
+            list.Insert(2);
+            list.Insert(3);
+            list.Insert(4);
+            list.Insert(5);
+            list.Insert(6);
+            list.Insert(7);
+            list.Insert(8);
+            list.Insert(9);
+            list.Insert(10);
+
+            var result = list.ReverseEveryGroupOfKNodes(6);
+
+            list.Print(result);
+            Console.WriteLine();
         }
 
         public static void ReverseLinkedList()
