@@ -367,5 +367,48 @@ namespace Algorithms.LinkedList
 
             return target.value;
         }
+
+        // Merge alternate nodes of two linked lists into the first list
+        // Given two linked lists, merge their nodes together into first list by taking nodes alternately between the two lists. If first list runs out, remaining nodes of second list should not be moved.
+        // {1, 2, 3}, {4, 5, 6, 7, 8} -> {1, 4, 2, 5, 3, 6} and {7, 8}
+        public Node MergeAlternateNodes(Node head2)
+        {
+            var dummy = new Node(-1);
+            var tail = dummy;
+            var current = head;
+            var current2 = head2;
+
+            while(current != null && current2 != null)
+            {
+                var currentNext = current.next;
+                var current2Next = current2.next;
+
+                tail.next = current;
+                current.next = current2;
+                current2.next = null;
+                tail = current2;
+
+                current = currentNext;
+                current2 = current2Next;
+            }
+
+            if (current == null && current2 != null)
+                head2 = current2;
+            else if (current != null && current2 == null)
+                head2 = current;
+            else
+                head2 = null;
+
+            head = dummy.next;
+            return head2;
+        }
+
+        // Merge two sorted linked lists from their end
+        // Write a function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in decreasing order and return it. In other words, merge two sorted linked lists from their end.
+        // {1, 3, 5}, {2, 6, 7, 10} -> {10, 7, 6, 5, 3, 2, 1}
+        public void MergeTwoSortedLinkedListsFromEnd()
+        {
+
+        }
     }
 }
