@@ -193,10 +193,10 @@ namespace Algorithms.LinkedList
         // and merges the two together into one list which is in increasing order and return it.
         // {1,3,5} {2,4,6,7} -> {1,2,3,4,5,6,7}
         // The problem can be solved either iteratively or recursively.
-        // There are many cases to deal with: either ?˜a??or ?˜b??may be empty, 
-        // during processing either ?˜a??or ?˜b??may run out first, 
-        // and finally there?™s the problem of starting the result list empty, 
-        // and building it up while going through ?˜a??and ?˜b??
+        // There are many cases to deal with: either ?î¥”??or ?î¥•??may be empty, 
+        // during processing either ?î¥”??or ?î¥•??may run out first, 
+        // and finally there?î¨ƒ the problem of starting the result list empty, 
+        // and building it up while going through ?î¥”??and ?î¥•??
         public void MergeTwoSortedList(Node head2)
         {
             var list = new Node(0);
@@ -246,7 +246,7 @@ namespace Algorithms.LinkedList
 
         // Intersection of two given sorted linked lists
         //Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists. 
-        // The new list should be made with its own memory ¡X the original lists should not be changed.
+        // The new list should be made with its own memory â€” the original lists should not be changed.
         // First List  : 1 -> 3 - > 4 -> 5 -> 6 -> 7 -> 10 -> null
         // Second List : 3 -> 4 -> 6 -> 8 -> 10 -> null
         // Output :  4 -> 10 -> null
@@ -342,11 +342,30 @@ namespace Algorithms.LinkedList
             return dummy.next;
         }
 
-        // Find K¡¦th node from the end in a linked list
-        // Given a linked list and a positive integer K, find K¡¦th node from the end in a linked list.
-        public static void FindKthNodeFromTheEnd()
+        // Find Kâ€™th node from the end in a linked list
+        // Given a linked list and a positive integer K, find Kâ€™th node from the end in a linked list.
+        public int FindKthNodeFromTheEnd(int k)
         {
+            var current = head;
+            var count = 0;
 
+            while(current != null)
+            {
+                count++;
+                current = current.next;                
+            }
+            
+            if (k > count)
+                return -1;
+
+            Node target = head;
+
+            for(int i = 1; i <= count - k ; i++ )
+            {
+                target = target.next;
+            }
+
+            return target.value;
         }
     }
 }
