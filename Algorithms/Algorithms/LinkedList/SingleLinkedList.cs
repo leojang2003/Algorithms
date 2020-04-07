@@ -75,13 +75,13 @@ namespace Algorithms.LinkedList
         public void RemoveDuplicateFromSorted()
         {
             var current = head;
-            
+
             if (current == null)
                 return;
 
             while (current.next != null)
             {
-                if(current.value == current.next.value)
+                if (current.value == current.next.value)
                 {
                     current.next = current.next.next;
                 }
@@ -89,7 +89,7 @@ namespace Algorithms.LinkedList
                     current = current.next;
             }
         }
-        
+
         // Move front node of given linked list to the front of another list
         public Node MoveFrontToAnotherList(Node anotherHead)
         {
@@ -103,7 +103,7 @@ namespace Algorithms.LinkedList
 
             head = temp;
             return head2;
-        
+
         }
 
         // Move even nodes to the end of linked list in reverse order
@@ -119,11 +119,11 @@ namespace Algorithms.LinkedList
 
             var current = head;
             Node even = null;
-            Node previous = dummy;            
+            Node previous = dummy;
 
-            while(current != null)
+            while (current != null)
             {
-                if(current.value % 2 == 0)
+                if (current.value % 2 == 0)
                 {
                     var next = current.next;
                     previous.next = next;
@@ -133,17 +133,17 @@ namespace Algorithms.LinkedList
                         even.next = null; // must terminate even list                     
                     }
                     else
-                    {                        
+                    {
                         current.next = even;
-                        even = current;                        
-                    }                    
+                        even = current;
+                    }
                     current = next;
                 }
                 else
                 {
                     previous = current;
                     current = current.next;
-                }                
+                }
             }
             previous.next = even;
             head = dummy.next;
@@ -168,7 +168,7 @@ namespace Algorithms.LinkedList
             if (current2 == null)
                 return;
 
-            while(current.next != null)
+            while (current.next != null)
             {
                 var next = current.next;
                 var next2 = current2.next;
@@ -185,7 +185,7 @@ namespace Algorithms.LinkedList
             }
 
             if (current2 != null)
-                current.next = current2;            
+                current.next = current2;
         }
 
         // Merge two sorted linked lists into one
@@ -212,9 +212,9 @@ namespace Algorithms.LinkedList
             if (current2 == null)
                 return;
 
-            while(current != null && current2 != null)
+            while (current != null && current2 != null)
             {
-                if(current.value < current2.value)
+                if (current.value < current2.value)
                 {
                     currentNext = current.next;
                     newCurrent.next = current; // Debug found error, need to add pointer to new list
@@ -241,7 +241,7 @@ namespace Algorithms.LinkedList
 
         public void MergeSortGivenLinkedList(Node head2)
         {
-            
+
         }
 
         // Intersection of two given sorted linked lists
@@ -254,7 +254,7 @@ namespace Algorithms.LinkedList
         {
             Node current = head;
             Node current2 = head2;
-            
+
             var dummy = new Node(-1); // use dummy node;            
             var last = dummy; // Debug found error
 
@@ -287,13 +287,13 @@ namespace Algorithms.LinkedList
         public Node ReverseLinkedList()
         {
             var dummy = new Node(-1);
-            
+
             if (head == null)
                 return head;
 
             var current = head;
 
-            while(current != null)
+            while (current != null)
             {
                 var node = new Node(current.value);
                 var temp = dummy.next;
@@ -318,7 +318,7 @@ namespace Algorithms.LinkedList
             var current = head;
             var count = 1;
 
-            while(current != null && count <= k)
+            while (current != null && count <= k)
             {
                 var node = new Node(current.value);
                 var tmp = groupHead.next;
@@ -334,7 +334,7 @@ namespace Algorithms.LinkedList
                 {
                     count = 1;
                     groupHead = temp;
-                }                    
+                }
 
                 current = current.next;
             }
@@ -349,18 +349,18 @@ namespace Algorithms.LinkedList
             var current = head;
             var count = 0;
 
-            while(current != null)
+            while (current != null)
             {
                 count++;
-                current = current.next;                
+                current = current.next;
             }
-            
+
             if (k > count)
                 return -1;
 
             Node target = head;
 
-            for(int i = 1; i <= count - k ; i++ )
+            for (int i = 1; i <= count - k; i++)
             {
                 target = target.next;
             }
@@ -378,7 +378,7 @@ namespace Algorithms.LinkedList
             var current = head;
             var current2 = head2;
 
-            while(current != null && current2 != null)
+            while (current != null && current2 != null)
             {
                 var currentNext = current.next;
                 var current2Next = current2.next;
@@ -403,12 +403,113 @@ namespace Algorithms.LinkedList
             return head2;
         }
 
+        // Delete every N nodes in a linked list after skipping M nodes
+        // Given a linked list and two positive integers M and N, delete every N nodes in it after skipping M nodes.
+        // 1 -> 2 -> 3 ->  4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> null
+        // If M = 1, N =3
+        // 1 -> 5 -> 9 -> null
+        public void DeleteEveryNNodesAfterSkippingMNodes(int m, int n)
+        {           
+            var current = head;
+            int skipCount = 1;
+
+            while (current != null)
+            {
+                if(skipCount == m)
+                {
+                    var temp = current;
+
+                    skipCount = 1; // reset skip count;
+                    var deleteCount = 1; // start delete count
+                    while(current.next != null && deleteCount <= n)
+                    {
+                        if(deleteCount == n)
+                        {
+                            temp.next = current.next.next; // debug found error
+                            current = current.next.next;
+                            break;                           
+                        }
+                        else
+                        {                           
+                            current = current.next;
+                            temp.next = null; // debug found error
+                            deleteCount++;
+                        }                        
+                    }
+
+                    // debug found error, handle node less than n
+                    if(current.next == null)
+                        return;
+                }
+                else
+                {
+                    current = current.next;
+                    skipCount++;
+                }
+            }             
+        }
+
         // Merge two sorted linked lists from their end
         // Write a function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in decreasing order and return it. In other words, merge two sorted linked lists from their end.
         // {1, 3, 5}, {2, 6, 7, 10} -> {10, 7, 6, 5, 3, 2, 1}
-        public void MergeTwoSortedLinkedListsFromEnd()
+        public Node MergeTwoSortedLinkedListsFromEnd(Node head2)
         {
+            var current = head;
+            var current2 = head2;
+            var dummy = new Node(-1);
 
+            while (current != null && current2 != null)
+            {
+                if (current.value < current2.value)
+                {
+                    var currentNext = current.next;
+
+                    var next = dummy.next;
+                    dummy.next = current;
+                    current.next = next;
+
+                    current = currentNext;
+                }
+                else
+                {
+                    var current2Next = current2.next;
+
+                    var next = dummy.next;
+                    dummy.next = current2;
+                    current2.next = next;
+
+                    current2 = current2Next;
+                }
+            }
+
+            if (current == null)
+            {
+                while (current2 != null)
+                {
+                    var current2Next = current2.next;
+
+                    var next = dummy.next;
+                    dummy.next = current2;
+                    current2.next = next;
+
+                    current2 = current2Next;
+                }
+            }
+            else
+            {
+                while (current != null)
+                {
+                    var currentNext = current.next;
+
+                    var next = dummy.next;
+                    dummy.next = current;
+                    current.next = next;
+
+                    current = currentNext;
+                }
+            }
+
+            return dummy.next;
         }
     }
 }
