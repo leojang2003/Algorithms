@@ -24,8 +24,56 @@ namespace Algorithms
             //ReverseLinkedList();
             //ReverseEveryGroupOfKNodes();
             //FindKthNodeFromTheEnd();
-            MergeAlternateNodes();
+            //MergeAlternateNodes();
+            // MergeTwoSortedLinkedListsFromEnd();
+            DeleteEveryNNodesAfterSkippingMNodes(1, 1);
             Console.ReadKey();            
+        }
+
+        public static void DeleteEveryNNodesAfterSkippingMNodes(int m, int n)
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(0);
+            list.Insert(1);
+            list.Insert(2);
+            list.Insert(3);
+            list.Insert(4);
+            list.Insert(5);
+            list.Insert(6);
+            list.Insert(7);
+            list.Insert(8);
+            list.Insert(9);
+            list.Insert(10);
+
+            list.DeleteEveryNNodesAfterSkippingMNodes(m,n);
+            list.Print(list.head);
+            Console.WriteLine();
+        }
+
+        public static void MergeTwoSortedLinkedListsFromEnd()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(1);
+            list.Insert(3);
+            list.Insert(5);
+            list.Insert(7);
+            list.Insert(9);
+            list.Insert(11);
+            list.Insert(13);
+
+            SingleLinkedList list2 = new SingleLinkedList();
+            list2.Insert(2);
+            list2.Insert(4);
+            list2.Insert(6);
+            list2.Insert(8);
+            list2.Insert(10);
+            list2.Insert(12);
+            list2.Insert(14);
+
+            var result = list.MergeTwoSortedLinkedListsFromEnd(list2.head);
+                        
+            list.Print(result);
+            Console.WriteLine();
         }
 
         public static void MergeAlternateNodes()
