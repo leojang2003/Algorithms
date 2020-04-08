@@ -26,12 +26,18 @@ namespace Algorithms
             //FindKthNodeFromTheEnd();
             //MergeAlternateNodes();
             // MergeTwoSortedLinkedListsFromEnd();
-            DeleteEveryNNodesAfterSkippingMNodes(1, 1);
+            //DeleteEveryNNodesAfterSkippingMNodes(1, 1);
+            //DeleteEveryNNodesAfterSkippingMNodes(1, 2);
+            //DeleteEveryNNodesAfterSkippingMNodes(1, 3);
+            //DeleteEveryNNodesAfterSkippingMNodes(2, 1);
+            //DeleteEveryNNodesAfterSkippingMNodes(3, 1);
+            DeleteEveryNNodesAfterSkippingMNodes(1, 15);
+            DeleteEveryNNodesAfterSkippingMNodes(15, 1);
             Console.ReadKey();            
         }
 
         public static void DeleteEveryNNodesAfterSkippingMNodes(int m, int n)
-        {
+        {            
             SingleLinkedList list = new SingleLinkedList();
             list.Insert(0);
             list.Insert(1);
@@ -44,7 +50,10 @@ namespace Algorithms
             list.Insert(8);
             list.Insert(9);
             list.Insert(10);
-
+            list.Insert(11);
+            list.Insert(12);
+            list.Print(list.head);
+            Console.WriteLine($"skip {m} nodes, Delete {n} nodes ");
             list.DeleteEveryNNodesAfterSkippingMNodes(m,n);
             list.Print(list.head);
             Console.WriteLine();
