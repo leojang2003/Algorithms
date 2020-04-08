@@ -305,6 +305,17 @@ namespace Algorithms.LinkedList
             return dummy.next;
         }
 
+        // Rearrange linked list in specific manner in linear time
+        // Given a linked list, rearrange linked list nodes in specific way in linear time and constant space. The alternate positions in the output list should be filled with the nodes starting from the beginning and from the very end of the original list respectively.
+        //  1 -> 2 -> 3 -> 4 -> 5 -> 6 (input)
+        //  1 -> 6 -> 2 -> 5 -> 3 -> 4 (output)
+        //  1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 (input)
+        //  1 -> 7 -> 2 -> 6 -> 3 -> 5 -> 4 (output)
+        public void RearrangeInSpecificMannerInLinearTime()
+        {
+
+        }
+
         // Reverse every group of k nodes in given linked list
         // Given a linked list, reverse every adjacent group of k nodes in it where k is given positive integer.
         // Input List: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> null
