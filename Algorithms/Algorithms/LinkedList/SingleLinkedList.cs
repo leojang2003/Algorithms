@@ -193,10 +193,10 @@ namespace Algorithms.LinkedList
         // and merges the two together into one list which is in increasing order and return it.
         // {1,3,5} {2,4,6,7} -> {1,2,3,4,5,6,7}
         // The problem can be solved either iteratively or recursively.
-        // There are many cases to deal with: either ???or ???may be empty, 
-        // during processing either ???or ???may run out first, 
-        // and finally there? the problem of starting the result list empty, 
-        // and building it up while going through ???and ???
+        // There are many cases to deal with: either 'a' or 'b' may be empty, 
+        // during processing either 'a' or 'b' may run out first, 
+        // and finally there's the problem of starting the result list empty, 
+        // and building it up while going through 'a' and 'b'
         public void MergeTwoSortedList(Node head2)
         {
             var list = new Node(0);
@@ -409,9 +409,11 @@ namespace Algorithms.LinkedList
         // If M = 1, N =3
         // 1 -> 5 -> 9 -> null
         public void DeleteEveryNNodesAfterSkippingMNodes(int m, int n)
-        {           
-            var current = head;
-            int skipCount = 1;
+        {
+            var dummy = new Node(-1);
+            dummy.next = head;
+            var current = dummy;
+            int skipCount = 0; // the nodes skipped
 
             while (current != null)
             {
@@ -419,14 +421,14 @@ namespace Algorithms.LinkedList
                 {
                     var temp = current;
 
-                    skipCount = 1; // reset skip count;
-                    var deleteCount = 1; // start delete count
+                    skipCount = 0; // reset skip count
+                    var deleteCount = 0; // start delete count
                     while(current.next != null && deleteCount <= n)
                     {
                         if(deleteCount == n)
                         {
-                            temp.next = current.next.next; // debug found error
-                            current = current.next.next;
+                            temp.next = current.next; // debug found error
+                            //current = current.next.next;
                             break;                           
                         }
                         else
