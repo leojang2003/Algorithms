@@ -56,5 +56,23 @@ namespace Algorithms.Test
             var result = sut.RearrangeInSpecificMannerInLinearTime();
             StringAssert.AreEqualIgnoringCase("0", sut.Print(result));
         }
+
+        [Test]
+        public void Test4()
+        {
+            var sut = new SingleLinkedList();
+
+            sut.Insert(0);
+            sut.Insert(1);
+            sut.Insert(2);
+            sut.Insert(3);
+            sut.Insert(4);
+            sut.Insert(5);
+            sut.Insert(6);
+            sut.Insert(7);
+            
+            var result = sut.RearrangeInSpecificMannerInLinearTime();
+            StringAssert.AreEqualIgnoringCase("0 7 1 6 2 5 3 4", sut.Print(result));
+        }
     }
 }
