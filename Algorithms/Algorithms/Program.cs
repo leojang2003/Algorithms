@@ -31,9 +31,32 @@ namespace Algorithms
             //DeleteEveryNNodesAfterSkippingMNodes(1, 3);
             //DeleteEveryNNodesAfterSkippingMNodes(2, 1);
             //DeleteEveryNNodesAfterSkippingMNodes(3, 1);
-            DeleteEveryNNodesAfterSkippingMNodes(1, 15);
-            DeleteEveryNNodesAfterSkippingMNodes(15, 1);
+            //DeleteEveryNNodesAfterSkippingMNodes(1, 15);
+            //DeleteEveryNNodesAfterSkippingMNodes(15, 1);
+            RearrangeInSpecificMannerInLinearTime();
             Console.ReadKey();            
+        }
+
+        public static void RearrangeInSpecificMannerInLinearTime()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+            list.Insert(0);
+            list.Insert(1);
+            list.Insert(2);
+            list.Insert(3);
+            list.Insert(4);
+            list.Insert(5);
+            list.Insert(6);
+            list.Insert(7);
+            list.Insert(8);
+            list.Insert(9);
+            list.Insert(10);
+            list.Insert(11);
+            list.Insert(12);
+
+            var result = list.RearrangeInSpecificMannerInLinearTime();
+            list.Print(result);
+            Console.WriteLine();
         }
 
         public static void DeleteEveryNNodesAfterSkippingMNodes(int m, int n)
@@ -88,22 +111,23 @@ namespace Algorithms
         public static void MergeAlternateNodes()
         {
             SingleLinkedList list = new SingleLinkedList();
+            list.Insert(0);
             list.Insert(1);
+            list.Insert(2);
             list.Insert(3);
+            list.Insert(4);
             list.Insert(5);
-            list.Insert(7);
-            list.Insert(9);
-            list.Insert(11);
-            list.Insert(13);
+            list.Insert(6);
+            
 
             SingleLinkedList list2 = new SingleLinkedList();
-            list2.Insert(2);
-            list2.Insert(4);
-            list2.Insert(6);
-            //list2.Insert(8);
-            //list2.Insert(10);
-            //list2.Insert(12);
-            //list2.Insert(14);
+            list2.Insert(7);
+            list2.Insert(8);
+            list2.Insert(9);
+            list2.Insert(10);
+            list2.Insert(11);
+            list2.Insert(12);
+            list2.Insert(13);
 
             var result = list.MergeAlternateNodes(list2.head);
 

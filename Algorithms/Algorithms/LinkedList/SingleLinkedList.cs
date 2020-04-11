@@ -282,6 +282,27 @@ namespace Algorithms.LinkedList
             return dummy.next;
         }
 
+        public Node ReverseLinkedList(Node head)
+        {
+            var dummy = new Node(-1);
+
+            if (head == null)
+                return head;
+
+            var current = head;
+
+            while (current != null)
+            {
+                var node = new Node(current.value);
+                var temp = dummy.next;
+                dummy.next = node;
+                node.next = temp;
+                current = current.next;
+            }
+
+            return dummy.next;
+        }
+
         //   Input : 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
         //   Output : 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> null
         public Node ReverseLinkedList()
@@ -311,9 +332,45 @@ namespace Algorithms.LinkedList
         //  1 -> 6 -> 2 -> 5 -> 3 -> 4 (output)
         //  1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 (input)
         //  1 -> 7 -> 2 -> 6 -> 3 -> 5 -> 4 (output)
-        public void RearrangeInSpecificMannerInLinearTime()
+        public Node RearrangeInSpecificMannerInLinearTime()
         {
+            var head2 = this.Split();
+            var reversed = this.ReverseLinkedList(head2);
+            var remaining = this.MergeAlternateNodesV2(this.head, reversed);
+            return remaining;
+        }
 
+        // Merge alternate nodes of two linked lists into the first list
+        // Given two linked lists, merge their nodes together into first list by taking nodes alternately between the two lists. If first list runs out, remaining nodes of second list should not be moved.
+        // {1, 2, 3}, {4, 5, 6, 7, 8} -> {1, 4, 2, 5, 3, 6} and {7, 8}
+        public Node MergeAlternateNodesV2(Node head, Node head2)
+        {
+            var dummy = new Node(-1);
+            var tail = dummy;
+            var current = head;
+            var current2 = head2;
+
+            while (current != null && current2 != null)
+            {
+                var currentNext = current.next;
+                var current2Next = current2.next;
+
+                tail.next = current;
+                current.next = current2;
+                current2.next = null;
+                tail = current2;
+
+                current = currentNext;
+                current2 = current2Next;
+            }
+
+            if (current == null && current2 != null)
+                tail.next = current2;
+            else if (current != null && current2 == null)
+                tail.next = current;
+            
+            head = dummy.next;
+            return head;
         }
 
         // Reverse every group of k nodes in given linked list
