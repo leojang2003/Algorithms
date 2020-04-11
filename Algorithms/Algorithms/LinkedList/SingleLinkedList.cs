@@ -25,21 +25,25 @@ namespace Algorithms.LinkedList
             }
         }
 
-        public void Print(Node node)
+        public string Print(Node node)
         {
             var current = node;
+            string result = "";
 
             if (current == null)
-                Console.WriteLine("empty");
+                return "";
+
+            int count = 0;
 
             while (current != null)
             {
-                Console.Write(current.value);
-                Console.Write(" ");
+                if(count != 0)
+                    result += " ";
+                result += current.value;                
                 current = current.next;
+                count++;
             }
-
-            Console.Write(" EOS");
+            return result;
         }
 
         public Node Split()
