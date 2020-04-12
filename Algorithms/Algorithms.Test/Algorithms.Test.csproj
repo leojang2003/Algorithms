@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LinkedList\DetectingCycleInTest.cs" />
+    <Compile Include="LinkedList\IsPalindromTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RearrangeInSpecificMannerInLinearTimeTest.cs" />
+    <Compile Include="LinkedList\RearrangeInSpecificMannerInLinearTimeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

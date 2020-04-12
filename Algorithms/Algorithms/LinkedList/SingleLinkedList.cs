@@ -46,6 +46,29 @@ namespace Algorithms.LinkedList
             return result;
         }
 
+        // Detect Cycle in a linked list (Floyd’s Cycle Detection Algorithm)
+        // In this post, we will see how to detect cycle in a a linked list using Hashing and Floyd’s Cycle Detection Algorithm.
+        // Using Hashings
+        //. The idea is to traverse the given list and insert each encountered node into a set. Now, 
+        // if the current node already present in the set (ie. it is seen before), that means a cycle is present in the list.
+        public bool IsCycle()
+        {
+            var set = new HashSet<Node>();
+            var current = head;
+
+            while(current != null)
+            {
+                if (set.Contains(current))
+                    return true;
+                else
+                    set.Add(current);
+
+                current = current.next;
+            }
+            
+            return false;
+        }
+
         public Node Split()
         {
             Node current = head;
@@ -92,6 +115,27 @@ namespace Algorithms.LinkedList
                 else
                     current = current.next;
             }
+        }
+
+        // Check if a Linked List is Palindrome or not
+        public bool IsPalindrome()
+        {
+            var head2 = Split();
+            var reverse = ReverseLinkedList(head2);
+
+            Node top = head;
+            Node bottom = reverse;
+
+            while(top != null && bottom != null)
+            {
+                if (top.value != bottom.value)
+                    return false;
+
+                top = top.next;
+                bottom = bottom.next;
+            }
+
+            return true;
         }
 
         // Move front node of given linked list to the front of another list

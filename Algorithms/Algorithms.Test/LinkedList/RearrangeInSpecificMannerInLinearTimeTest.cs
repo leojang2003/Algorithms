@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Test
+namespace Algorithms.Test.LinkedList
 {
     [TestFixture]
     public class RearrangeInSpecificMannerInLinearTimeTest
