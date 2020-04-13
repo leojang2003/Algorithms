@@ -105,7 +105,40 @@ namespace Algorithms.LinkedList
         // 0 -> 0 -> 0 -> 0 -> 0 -> 1 -> 1 -> 1 -> 1 -> 2 -> 2 -> 2 -> NULL
         public void SortLinkedListContaing012()
         {
+            Node head0 = new Node(-1);
+            Node head1 = new Node(-1);
+            Node head2 = new Node(-1);
+            Node tail0 = head0; // debug found error : head0.next --> head0
+            Node tail1 = head1; // debug found error : head1.next --> head1
+            Node tail2 = head2; // debug found error : head2.next --> head2          
+            var current = head;
 
+            while(current != null)
+            {
+                var tmp = current.next; // debug found error
+                if(current.value == 0)
+                {
+                    tail0.next = current;
+                    tail0 = current;
+                }                                  
+                else if (current.value == 1)
+                {
+                    tail1.next = current;
+                    tail1 = current;
+                }
+                else
+                {
+                    tail2.next = current;
+                    tail2 = current;
+                }
+                current.next = null;
+                current = tmp; // debug found error
+            }
+
+            tail0.next = head1.next;
+            tail1.next = head2.next;
+
+            head = head0.next;
         }
 
         public void RemoveDuplicateFromSorted()
