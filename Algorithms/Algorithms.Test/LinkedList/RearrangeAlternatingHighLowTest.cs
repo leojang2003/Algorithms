@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Test.LinkedList
 {
-    class AlternatingHighLowTest
+    class RearrangeAlternatingHighLowTest
     {
     }
 }
