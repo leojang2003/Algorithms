@@ -25,6 +25,35 @@ namespace Algorithms.LinkedList
             }
         }
 
+        public void StackPush(int value)
+        {
+            var node = new Node(value);
+
+            if (head == null)
+                head = node;
+            else
+            {
+                var tmp = this.head;
+                head = node;
+                head.next = tmp;
+            }
+            
+        }
+
+        public int StackPop()
+        {
+            var next = head.next;
+            var value = head.value;
+            head = head.next;
+
+            return value;
+        }
+
+        public int StackPeep()
+        {
+            return head.value;
+        }
+
         public string Print(Node node)
         {
             var current = node;

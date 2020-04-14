@@ -59,6 +59,7 @@
     <Compile Include="LinkedList\RearrangeSeperatingOddEvenTest.cs" />
     <Compile Include="LinkedList\RemoveDuplicatesTest.cs" />
     <Compile Include="LinkedList\SortLinkedListContaing012Test.cs" />
+    <Compile Include="LinkedList\StackImplementationInLinkedListTest.cs" />
     <Compile Include="LinkedList\StackImplementationUsingLinkedListTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LinkedList\RearrangeInSpecificMannerInLinearTimeTest.cs" />
