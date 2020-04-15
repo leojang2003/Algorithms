@@ -54,6 +54,46 @@ namespace Algorithms.LinkedList
             return head.value;
         }
 
+        // Adds an element to the rear position
+        public void Enqueue(int value)
+        {            
+            var current = head;
+            var last = current;
+            var node = new Node(value);
+
+            if (current == null)
+            {
+                head = node;
+                return; // debug found error
+            }
+            while(current != null)
+            {
+                last = current;
+                current = current.next;
+            }
+
+            last.next = node;
+        }
+
+        // Remove an element from the front position
+        public void Dequeue()
+        {
+            var current = head;
+            if (current == null)
+                return;
+
+            var next = current.next;
+            head = next;            
+        }
+
+        // Return the value of the front position without dequeuing or modifying
+        public int? Peek()
+        {
+            if (head != null)
+                return head.value;
+            return null;
+        }
+
         public string Print(Node node)
         {
             var current = node;
