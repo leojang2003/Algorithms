@@ -115,6 +115,16 @@ namespace Algorithms.LinkedList
             return result;
         }
 
+        // Remove duplicates from a linked list in single traversal
+        // Given an unsorted linked list, write a function which deletes any duplicate nodes from the list by traversing the list only once.
+        // Input : 5 -> 3 -> 4 -> 2 -> 5 -> 4 -> 1 -> 3 -> null
+        // Output : 5 -> 3 -> 4 -> 2 -> 1 -> null
+        public void RemoveDuplicates()
+        {
+
+        }
+
+
         // Detect Cycle in a linked list (Floyd’s Cycle Detection Algorithm)
         // In this post, we will see how to detect cycle in a a linked list using Hashing and Floyd’s Cycle Detection Algorithm.
         // Using Hashings
