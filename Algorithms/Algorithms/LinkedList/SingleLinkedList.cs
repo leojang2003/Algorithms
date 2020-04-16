@@ -115,13 +115,78 @@ namespace Algorithms.LinkedList
             return result;
         }
 
+        // Rearrange the linked list so that it has alternating high, low values
+        // Given a linked list of integers, rearrange it such that every second node of the linked list is greater than its left and right nodes. In other words, rearrange linked list node in alternating high-low.
+        // Assume no duplicate nodes are present in the linked list.Several lists might satisfies the constraints, we need to print any one of them.For example,
+        //   1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 ===>  1 -> 3 -> 2 -> 5 -> 4 -> 7 -> 6
+        //   9 -> 6 -> 8 -> 3 -> 7 ===>  6 -> 9 -> 3 -> 8 -> 7
+        //   6 -> 9 -> 2 -> 5 -> 1 -> 4 ===>  6 -> 9 -> 2 -> 5 -> 1 -> 4
+        public void RearrangeAlternatingHighLow()
+        {
+            var dummy = new Node(-1);
+            dummy.next = head;
+            var current = head;
+            var current_weight = "low";
+            var before_current = dummy;
+
+            if (current == null)
+                return;
+            
+            while(current.next != null)
+            {
+                if(current_weight == "low")
+                {
+                    if(current.value > current.next.value)
+                    {
+                        var next = current.next;
+                        current.next = current.next.next;
+                        next.next = current;
+                        before_current.next = next;
+                    }
+                    else
+                    {
+                        current = current.next;
+                        current_weight = "high";
+                    }
+                    
+                }
+                else
+                {
+
+                }
+
+            }
+            
+        }
+
         // Remove duplicates from a linked list in single traversal
         // Given an unsorted linked list, write a function which deletes any duplicate nodes from the list by traversing the list only once.
         // Input : 5 -> 3 -> 4 -> 2 -> 5 -> 4 -> 1 -> 3 -> null
         // Output : 5 -> 3 -> 4 -> 2 -> 1 -> null
         public void RemoveDuplicates()
         {
+            var dummy = new Node(-1);
+            dummy.next = head;
+            var current = head;
+            var previous = dummy;
+            var set = new HashSet<int>();
 
+            while(current != null)
+            {
+                if (set.Contains(current.value))
+                {
+                    previous.next = current.next;
+                }
+                else
+                {
+                    previous = current;
+                    set.Add(current.value);
+                }                    
+
+                current = current.next;
+            }
+
+            head = dummy.next;
         }
 
 
