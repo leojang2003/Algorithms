@@ -115,6 +115,40 @@ namespace Algorithms.LinkedList
             return result;
         }
 
+        // Rearrange a Linked List by Separating Odd Nodes from the Even Ones
+        // Given a linked list, rearrange it by separating odd nodes from even ones. All even nodes should come before all odd nodes in the output list and the relative order of even and odd nodes should be maintained.
+        // Input : {1, 2, 3, 4, 5, 6, 7}
+        // Output : {2, 4, 6, 1, 3, 5, 7}
+        public void RearrangeOddNodesFromEvenNodes()
+        {
+            var dummyOdd = new Node(-1);
+            var dummyEven = new Node(-1);
+            var lastEven = dummyEven;
+            var lastOdd = dummyOdd;
+            var current = head;
+            
+            while(current != null)
+            {
+                var next = current.next; // debug found error
+                if(current.value % 2 == 0)
+                {
+                    lastEven.next = current;
+                    lastEven = current;
+                }
+                else
+                {
+                    lastOdd.next = current;
+                    lastOdd = current;
+                }
+                current.next = null; // debug found error
+                current = next; // debug found error
+            }
+
+            lastEven.next = dummyOdd.next;
+            head = dummyEven.next;
+            
+        }
+
         // Rearrange the linked list so that it has alternating high, low values
         // Given a linked list of integers, rearrange it such that every second node of the linked list is greater than its left and right nodes. In other words, rearrange linked list node in alternating high-low.
         // Assume no duplicate nodes are present in the linked list.Several lists might satisfies the constraints, we need to print any one of them.For example,
