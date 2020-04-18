@@ -142,21 +142,35 @@ namespace Algorithms.LinkedList
                         current.next = current.next.next;
                         next.next = current;
                         before_current.next = next;
+                        before_current = before_current.next;
                     }
                     else
                     {
-                        current = current.next;
-                        current_weight = "high";
+                        before_current = current;
+                        current = current.next;                        
                     }
-                    
+                    current_weight = "high"; // debug found error
                 }
                 else
                 {
-
+                    if (current.value < current.next.value)
+                    {
+                        var next = current.next;
+                        current.next = current.next.next;
+                        next.next = current;
+                        before_current.next = next;
+                        before_current = before_current.next;                        
+                    }
+                    else
+                    {
+                        before_current = current;
+                        current = current.next;                        
+                    }
+                    current_weight = "low"; // debug found error
                 }
-
             }
-            
+
+            head = dummy.next;
         }
 
         // Remove duplicates from a linked list in single traversal
