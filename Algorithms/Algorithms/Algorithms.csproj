@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\LongestCommonSequence.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="LinkedList\SingleLinkedList.cs" />
     <Compile Include="Printer.cs" />
@@ -58,6 +59,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
