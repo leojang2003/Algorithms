@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\LongestCommonSequencePrintAllTest.cs" />
     <Compile Include="LinkedList\RearrangeOddNodesFromEvenNodesTest.cs" />
     <Compile Include="LinkedList\RearrangeAlternatingHighLowTest.cs" />
     <Compile Include="LinkedList\DetectingCycleInTest.cs" />

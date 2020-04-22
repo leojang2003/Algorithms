@@ -14,7 +14,7 @@ namespace Algorithms.DynamicProgramming
             var n = input2.Length;
 
             if (m == 0 || n == 0)
-                return "";
+                return 0;
 
             if(input1[m-1] == input1[n-1])
             {
@@ -22,7 +22,7 @@ namespace Algorithms.DynamicProgramming
             }
             else
             {
-                return Math.Max(LCS(input1.Take(m - 1).ToArray(), input2), LCS(input1.Take(m).ToArray(), input2.Take(n - 1).ToArray()))
+                return Math.Max(LCS(input1.Take(m - 1).ToArray(), input2), LCS(input1.Take(m).ToArray(), input2.Take(n - 1).ToArray()));
             }
         }
     }

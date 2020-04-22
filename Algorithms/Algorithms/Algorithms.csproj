@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicProgramming\LongestCommonSequence.cs" />
+    <Compile Include="DynamicProgramming\LongestCommonSequencePrintAll.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="LinkedList\SingleLinkedList.cs" />
     <Compile Include="Printer.cs" />
