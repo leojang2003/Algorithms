@@ -16,8 +16,8 @@ namespace Algorithms.Test.LinkedList
         {
             var sut = new LongestCommonSequencePrintAll();
 
-            var array = sut.Lookup("XADFFF", "SWDWDD");            
-            Assert.AreEqual(0, array[4, 4]);
+            var lcs = sut.Print("XADFGF", "AEDEGF");            
+            Assert.AreEqual("ADGF", lcs);
             //Assert.AreEqual(array[3, 3], 1);
         }
 
