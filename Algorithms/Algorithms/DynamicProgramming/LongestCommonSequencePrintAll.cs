@@ -18,9 +18,9 @@ namespace Algorithms.DynamicProgramming
             while (currentX > 0 && currentY > 0)
             {
                 var count = lookup[currentX, currentY];
-                if (a.Skip(currentX - 1).Take(1).ToString() == b.Skip(currentY - 1).Take(1).ToString())
+                if (a.Substring(currentX - 1, 1) == b.Substring(currentY - 1, 1))
                 {
-                    lcs = a.Skip(currentX - 1).Take(1).ToString() + lcs;
+                    lcs = a.Substring(currentX - 1, 1) + lcs;
                     currentX--;
                     currentY--;
                 }
@@ -59,7 +59,7 @@ namespace Algorithms.DynamicProgramming
             {
                 for (int j = 1; j <= b.Length; j++)
                 {
-                    if (a.Take(i + 1).ToString() != b.Take(j + 1).ToString())
+                    if (a.Substring(i - 1, 1) != b.Substring(j - 1, 1))
                     {
                         lookup[i, j] = Math.Max(lookup[i, j - 1], lookup[i - 1, j]);
                     }

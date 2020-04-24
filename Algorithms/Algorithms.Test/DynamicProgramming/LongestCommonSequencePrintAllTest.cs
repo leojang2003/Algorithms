@@ -18,9 +18,35 @@ namespace Algorithms.Test.LinkedList
 
             var lcs = sut.Print("XADFGF", "AEDEGF");            
             Assert.AreEqual("ADGF", lcs);
-            //Assert.AreEqual(array[3, 3], 1);
         }
 
-        
+        [Test]
+        public void Test2()
+        {
+            var sut = new LongestCommonSequencePrintAll();
+
+            var lcs = sut.Print("XXXXX", "XXXXX");
+            Assert.AreEqual("XXXXX", lcs);
+        }
+
+        [Test]
+        public void Test3()
+        {
+            var sut = new LongestCommonSequencePrintAll();
+
+            var lcs = sut.Print("XXXXX", "YYYYY");
+            Assert.AreEqual("", lcs);
+        }
+
+        [Test]
+        public void Test4()
+        {
+            var sut = new LongestCommonSequencePrintAll();
+
+            var lcs = sut.Print("ABBABAB", "BABBABBBA");
+            Assert.AreEqual("ABBABA", lcs);
+        }
+
+
     }
 }
