@@ -1,3 +1,4 @@
+using Algorithms.DynamicProgramming;
 using Algorithms.LinkedList;
 using Algorithms.Sort;
 using System;
@@ -12,8 +13,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
+            var test = new LongestCommonSequence();
+            var result = test.PrintAnyLCS("ABCDEFG", "AUACBCYEOFGP");
+            //var result = test.PrintAllLCS("ABBABA", "BABBAB");
             //SortingTest.Test();
-
             //RemoveDuplicateFromSorted();
             //SplitLinkedList();
             //MoveHeadToAnotherList();
