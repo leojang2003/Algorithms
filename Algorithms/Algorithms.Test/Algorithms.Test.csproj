@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\LongestCommonSubstringTest.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSequenceTest.cs" />
     <Compile Include="LinkedList\RearrangeOddNodesFromEvenNodesTest.cs" />
     <Compile Include="LinkedList\RearrangeAlternatingHighLowTest.cs" />
