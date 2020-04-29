@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,22 +8,33 @@ namespace Algorithms.DynamicProgramming
 {
     public class LongestCommonSubstring
     {
-        int maxX = 0;
-        int maxy = 0;
         int max = 0;
-        Dictionary<int, int> list = new Dictionary<int, int>();
 
-        public string Find(string a, string b)
+        List<Loc> list = new List<Loc>();
+
+        public List<string> Find(string a, string b)
         {
             var lookup = Lookup(a, b);
-            foreach(var lcs in list)
-            {
-                var x = lcs.Key;
-                var y = lcs.Value;
+            var lcss = new List<string>();
 
-                while(int )
+            foreach (var loc in list)
+            {
+                var x = loc.x;
+                var y = loc.y;
+                var lcs = "";
+
+                var length = lookup[loc.x, loc.y];
+
+                for (int i = length; i > 0; i--)
+                {
+                    lcs = a.Substring(x - 1, 1) + lcs;
+                    x--;
+                    y--;
+                }
+
+                lcss.Add(lcs);
             }
-            return "";
+            return lcss;
         }
 
         public int[,] Lookup(string a, string b)
@@ -42,21 +53,28 @@ namespace Algorithms.DynamicProgramming
                     else
                     {
                         lookup[i, j] = lookup[i - 1, j - 1] + 1;
-                        if(lookup[i,j] == max )
+                        if (lookup[i, j] == max)
                         {
-                            list.Add(i, j);                            
+                            /* debug found error : key duplicate
+                            list.Add(i, j); 
+                            */
+                            list.Add(new Loc() { x = i, y = j });
                         }
-                        else if(lookup[i,j] > max)
+                        else if (lookup[i, j] > max)
                         {
                             list.Clear();
-                            list.Add(i, j);
+                            list.Add(new Loc() { x = i, y = j });
                             max = lookup[i, j];
                         }
                     }
                 }
             }
-
             return lookup;
         }
+    }
+    internal class Loc
+    {
+        public int x { get; set; }
+        public int y { get; set; }
     }
 }
