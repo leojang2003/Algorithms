@@ -14,75 +14,69 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test1()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            //   X A D F G F
-            // A 0 1 1 1 1 1
-            // E 0 1 1 1 1 1
-            // D 0 1 2 2 2 2
-            // E 0 1 2 2 2 2
-            // G 0 1 2 2 3 3
-            // F 0 1 2 3 3 4
-
-            var lcs = sut.PrintAnyLCS("XADFGF", "AEDEGF");
-            Assert.AreEqual("ADGF", lcs);
+            var lcs = sut.Find("XXXXXX", "XXXXXX");
+            Assert.AreEqual(1, lcs.Count);
+            Assert.Contains("XXXXXX", lcs);
         }
 
         [Test]
         public void Test2()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            var lcs = sut.PrintAnyLCS("XXXXX", "XXXXX");
-            Assert.AreEqual("XXXXX", lcs);
+            var lcs = sut.Find("XXXXX", "YYYYYY");
+            Assert.AreEqual(0, lcs.Count);
         }
 
         [Test]
         public void Test3()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            var lcs = sut.PrintAnyLCS("XXXXX", "YYYYY");
-            Assert.AreEqual("", lcs);
+            var lcs = sut.Find("ABCDEFGHI", "ABCDIEPKP");
+            Assert.Contains("ABCD", lcs);
         }
 
         [Test]
         public void Test4()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            var lcs = sut.PrintAnyLCS("ABBABAB", "BABBABBBA");
-            Assert.That(lcs == "ABBABB" || lcs == "ABBABA");
+            var lcs = sut.Find("ABBABAB", "BABBABBBA");
+            Assert.Contains("ABBAB", lcs);
         }
 
         [Test]
         public void Test5()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            var lcs = sut.PrintAnyLCS("ABCDEFG", "AUACBCYEOFGP");
-            Assert.AreEqual("ABCEFG", lcs);
+            var lcs = sut.Find("ABCDEFG", "DEFGOFGP");
+            Assert.Contains("DEFG", lcs);
         }
 
         [Test]
         public void Test6()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            var lcs = sut.PrintAllLCS("ABBABAB", "BABBABBBA");
-            Assert.AreEqual(2, lcs.Count);
-            Assert.Contains("ABBABB", lcs);
-            Assert.Contains("ABBABA", lcs);
+            var lcs = sut.Find("ABCDEFGHIJKL", "JKLONFGHPOBCD");
+            Assert.AreEqual(3, lcs.Count);
+            Assert.Contains("BCD", lcs);
+            Assert.Contains("FGH", lcs);
+            Assert.Contains("JKL", lcs);
         }
 
         [Test]
         public void Test7()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubstring();
 
-            var lcs = sut.PrintAllLCS("ABCDEFG", "AUACBCYEOFGP");
+            var lcs = sut.Find("ABCDEFG", "EFGOIOIOIABCDEIOK");
             Assert.AreEqual(1, lcs.Count);
-            Assert.Contains("ABCEFG", lcs);
+            Assert.Contains("ABCDE", lcs);
         }
     }
 }
