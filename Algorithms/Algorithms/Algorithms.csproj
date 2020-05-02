@@ -46,6 +46,7 @@
     <Compile Include="DynamicProgramming\LongestCommonSequenceLength.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSequence.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubstring.cs" />
+    <Compile Include="DynamicProgramming\LongestPalidromicSequence.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="LinkedList\SingleLinkedList.cs" />
     <Compile Include="Printer.cs" />

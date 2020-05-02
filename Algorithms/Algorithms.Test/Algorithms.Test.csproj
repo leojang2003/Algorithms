@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="DynamicProgramming\LongestCommonSubstringTest.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSequenceTest.cs" />
+    <Compile Include="DynamicProgramming\LongestPalidromicSequenceTest.cs" />
     <Compile Include="LinkedList\RearrangeOddNodesFromEvenNodesTest.cs" />
     <Compile Include="LinkedList\RearrangeAlternatingHighLowTest.cs" />
     <Compile Include="LinkedList\DetectingCycleInTest.cs" />
