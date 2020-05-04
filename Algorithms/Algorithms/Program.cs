@@ -13,8 +13,8 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var test = new LongestCommonSequence();
-            var result = test.PrintAnyLCS("ABCDEFG", "AUACBCYEOFGP");
+            var test = new LongestRepeatSequence();
+            var result = test.Length("ABA", 3, 3);
             //var result = test.PrintAllLCS("ABBABA", "BABBAB");
             //SortingTest.Test();
             //RemoveDuplicateFromSorted();
