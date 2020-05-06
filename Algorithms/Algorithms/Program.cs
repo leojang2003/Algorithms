@@ -13,29 +13,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var test = new LongestRepeatSequence();
-            var result = test.Length("ABA", 3, 3);
-            //var result = test.PrintAllLCS("ABBABA", "BABBAB");
-            //SortingTest.Test();
-            //RemoveDuplicateFromSorted();
-            //SplitLinkedList();
-            //MoveHeadToAnotherList();
-            //MoveEvenNodeToEndReverseOrder();
-            //MergeAlternatingNodes();
-            //MergeTwoSortedList();
-            //IntersectionOfTwoGivenSortedLinkedLists();
-            //ReverseLinkedList();
-            //ReverseEveryGroupOfKNodes();
-            //FindKthNodeFromTheEnd();
-            //MergeAlternateNodes();
-            // MergeTwoSortedLinkedListsFromEnd();
-            //DeleteEveryNNodesAfterSkippingMNodes(1, 1);
-            //DeleteEveryNNodesAfterSkippingMNodes(1, 2);
-            //DeleteEveryNNodesAfterSkippingMNodes(1, 3);
-            //DeleteEveryNNodesAfterSkippingMNodes(2, 1);
-            //DeleteEveryNNodesAfterSkippingMNodes(3, 1);
-            //DeleteEveryNNodesAfterSkippingMNodes(1, 15);
-            //DeleteEveryNNodesAfterSkippingMNodes(15, 1);
+            var sut = new LongestRepeatSequence();
+            var test = "YA1234567AX";
+            var lookup = new Dictionary<string, List<string>>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup);            
             RearrangeInSpecificMannerInLinearTime();
             Console.ReadKey();            
         }

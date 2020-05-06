@@ -86,5 +86,38 @@ namespace Algorithms.Test.DynamicProgramming
             var result = sut.LengthNoDupeCalc(test, test.Length, test.Length, lookup);
             Assert.AreEqual(2, result);
         }
+
+        [Test]
+        public void Test9()
+        {
+            var sut = new LongestRepeatSequence();
+            var test = "ABCOABCXQRFGQRF";
+            var lookup = new Dictionary<string, List<string>>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup);
+            Assert.AreEqual(2, result.Count);
+            Assert.Contains("ABC", result);
+        }
+
+        [Test]
+        public void Test10()
+        {
+            var sut = new LongestRepeatSequence();
+            var test = "YA1234567AX";
+            var lookup = new Dictionary<string, List<string>>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup);
+            Assert.AreEqual(1, result.Count);
+            Assert.Contains("A", result);
+        }
+
+        [Test]
+        public void Test11()
+        {
+            var sut = new LongestRepeatSequence();
+            var test = "ABA";
+            var lookup = new Dictionary<string, List<string>>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup);
+            Assert.AreEqual(1, result.Count);
+            Assert.Contains("A", result);
+        }
     }
 }

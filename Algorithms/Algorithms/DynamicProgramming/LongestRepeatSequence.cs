@@ -8,36 +8,70 @@ namespace Algorithms.DynamicProgramming
 {
     public class LongestRepeatSequence
     {
-        public List<string> PrintAll(string input, int start, int end)
+        public List<string> PrintAll(string x, int m, int n, Dictionary<string, List<string>> lookup)
         {
-            if (start == 0 || end == 0)
-                return new List<string>();
-
-            if (input.Substring(start, 1) == input.Substring(end, 1) && start != end)
+            if (m == 0 || n == 0)
             {
-                var previous = PrintAll(input, start - 1, end - 1);
-                var result = new List<string>();
-                if (previous.Count == 0)
+                return new List<string>();
+            }
+
+            string key = $"{m}|{n}"; // brilliant solution on web
+
+            if (!lookup.ContainsKey(key)) // should lookup in outer scope
+            {
+                if (x.Substring(m - 1, 1) == x.Substring(n - 1, 1) && m != n)
                 {
-                    result.Add(input.Substring(start, 1));
-                    return result;
+                    var previous = PrintAll(x, m - 1, n - 1, lookup);
+                    var result = new List<string>();
+                    if (previous.Count == 0)
+                    {
+                        result.Add(x.Substring(m - 1, 1));
+                        lookup.Add(key, result);
+                        return result;
+                    }
+                    else
+                    {
+                        foreach (var tmp in previous)
+                        {
+                            result.Add(tmp + x.Substring(m - 1, 1));
+                        }
+                        lookup.Add(key, result);
+                        return result;
+                    }
                 }
                 else
                 {
-                    foreach (var tmp in previous)
+                    var a = PrintAll(x, m - 1, n, lookup);
+                    var b = PrintAll(x, m, n - 1, lookup);
+
+                    if (a.Count == 0 && b.Count > 0)
+                        return b;
+                    else if (a.Count > 0 && b.Count == 0)
+                        return a;
+                    else if (a.Count > 0 && b.Count > 0)
                     {
-                        result.Add(tmp + input.Substring(start, 1));
+                        if (a.First().Length > b.First().Length)
+                            return a;
+                        else if (a.First().Length < b.First().Length)
+                            return b;
+                        else
+                        {
+                            var list = new List<string>();
+                            list.AddRange(a);
+                            list.AddRange(b);
+                            return list;
+                        }
                     }
+                    else
+                        return new List<string>();
                 }
             }
             else
             {
-                var m = PrintAll(input, start - 1, end);
-                var n = PrintAll(input, start, end - 1);
-
-
+                var value = new List<string>();
+                lookup.TryGetValue(key, out value);
+                return value;
             }
-
             return new List<string>();
         }
 
@@ -79,7 +113,8 @@ namespace Algorithms.DynamicProgramming
             var value = -1;
             lookup.TryGetValue(key, out value);
             return value;
-                
+
         }
+
     }
 }
