@@ -13,7 +13,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var sut = new LongestRepeatSequence();
+            var sut = new LongestRepeatedSubsequence();
             var test = "QARBFCOAQBRCF";
             var lookup = new Dictionary<string, List<string>>();
             var lrs = new HashSet<string>();

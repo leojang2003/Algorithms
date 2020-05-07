@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DynamicProgramming
 {
-    public class LongestCommonSequenceLength
+    public class LongestCommonSubsequenceLength
     {
         public int LCS(string[] input1, string[] input2)
         {

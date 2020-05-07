@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DynamicProgramming
 {
-    public class LongestRepeatSequenceBottomUp
+    public class LongestRepeatedSubsequenceBottomUp
     {
         public List<string> LRS(string a, string b, int[,] lookup, int m, int n)
         {

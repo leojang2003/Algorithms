@@ -14,7 +14,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test1()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             //   X A D F G F
             // A 0 1 1 1 1 1
@@ -31,7 +31,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test2()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             var lcs = sut.PrintAnyLCS("XXXXX", "XXXXX");
             Assert.AreEqual("XXXXX", lcs);
@@ -40,7 +40,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test3()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             var lcs = sut.PrintAnyLCS("XXXXX", "YYYYY");
             Assert.AreEqual("", lcs);
@@ -49,7 +49,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test4()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             var lcs = sut.PrintAnyLCS("ABBABAB", "BABBABBBA");
             Assert.That(lcs == "ABBABB" || lcs == "ABBABA");
@@ -58,7 +58,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test5()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             var lcs = sut.PrintAnyLCS("ABCDEFG", "AUACBCYEOFGP");
             Assert.AreEqual("ABCEFG", lcs);
@@ -67,7 +67,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test6()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             var lcs = sut.PrintAllLCS("ABBABAB", "BABBABBBA");
             Assert.AreEqual(2, lcs.Count);
@@ -78,7 +78,7 @@ namespace Algorithms.Test.LinkedList
         [Test]
         public void Test7()
         {
-            var sut = new LongestCommonSequence();
+            var sut = new LongestCommonSubsequence();
 
             var lcs = sut.PrintAllLCS("ABCDEFG", "AUACBCYEOFGP");
             Assert.AreEqual(1, lcs.Count);

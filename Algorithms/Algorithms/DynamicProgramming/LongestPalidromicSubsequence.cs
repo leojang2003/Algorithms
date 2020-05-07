@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DynamicProgramming
 {
-    public class LongestPalidromicSequence
+    public class LongestPalidromicSubsequence
     {
         // 0,4
         // 1 3

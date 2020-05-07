@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DynamicProgramming
 {
-    public class LongestCommonSequence
+    public class LongestCommonSubsequence
     {
         public List<string> PrintAllLCS(string a, string b)
         {

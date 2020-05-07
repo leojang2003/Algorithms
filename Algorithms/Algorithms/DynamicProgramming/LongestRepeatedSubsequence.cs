@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DynamicProgramming
 {
-    public class LongestRepeatSequence
+    public class LongestRepeatedSubsequence
     {
         public List<string> PrintAll(string x, int m, int n, Dictionary<string, List<string>> lookup, HashSet<string> lrs)
         {
