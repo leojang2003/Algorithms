@@ -14,9 +14,10 @@ namespace Algorithms
         static void Main(string[] args)
         {
             var sut = new LongestRepeatSequence();
-            var test = "YA1234567AX";
+            var test = "QARBFCOAQBRCF";
             var lookup = new Dictionary<string, List<string>>();
-            var result = sut.PrintAll(test, test.Length, test.Length, lookup);            
+            var lrs = new HashSet<string>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup, lrs);            
             RearrangeInSpecificMannerInLinearTime();
             Console.ReadKey();            
         }

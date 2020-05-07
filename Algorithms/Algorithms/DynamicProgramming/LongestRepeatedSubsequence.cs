@@ -8,7 +8,7 @@ namespace Algorithms.DynamicProgramming
 {
     public class LongestRepeatSequence
     {
-        public List<string> PrintAll(string x, int m, int n, Dictionary<string, List<string>> lookup)
+        public List<string> PrintAll(string x, int m, int n, Dictionary<string, List<string>> lookup, HashSet<string> lrs)
         {
             if (m == 0 || n == 0)
             {
@@ -21,7 +21,7 @@ namespace Algorithms.DynamicProgramming
             {
                 if (x.Substring(m - 1, 1) == x.Substring(n - 1, 1) && m != n)
                 {
-                    var previous = PrintAll(x, m - 1, n - 1, lookup);
+                    var previous = PrintAll(x, m - 1, n - 1, lookup, lrs);
                     var result = new List<string>();
                     if (previous.Count == 0)
                     {
@@ -41,8 +41,8 @@ namespace Algorithms.DynamicProgramming
                 }
                 else
                 {
-                    var a = PrintAll(x, m - 1, n, lookup);
-                    var b = PrintAll(x, m, n - 1, lookup);
+                    var a = PrintAll(x, m - 1, n, lookup, lrs);
+                    var b = PrintAll(x, m, n - 1, lookup, lrs);
 
                     if (a.Count == 0 && b.Count > 0)
                         return b;
@@ -59,7 +59,7 @@ namespace Algorithms.DynamicProgramming
                             var list = new List<string>();
                             list.AddRange(a);
                             list.AddRange(b);
-                            return list;
+                            return list.Distinct().ToList(); 
                         }
                     }
                     else
@@ -71,8 +71,7 @@ namespace Algorithms.DynamicProgramming
                 var value = new List<string>();
                 lookup.TryGetValue(key, out value);
                 return value;
-            }
-            return new List<string>();
+            }            
         }
 
         // This problem is just the modification of Longest Common Subsequence problem. 

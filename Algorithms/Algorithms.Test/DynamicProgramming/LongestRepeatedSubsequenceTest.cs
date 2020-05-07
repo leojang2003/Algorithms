@@ -93,9 +93,10 @@ namespace Algorithms.Test.DynamicProgramming
             var sut = new LongestRepeatSequence();
             var test = "ABCOABCXQRFGQRF";
             var lookup = new Dictionary<string, List<string>>();
-            var result = sut.PrintAll(test, test.Length, test.Length, lookup);
-            Assert.AreEqual(2, result.Count);
-            Assert.Contains("ABC", result);
+            var lrs = new HashSet<string>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup, lrs);
+            Assert.AreEqual(1, result.Count);
+            Assert.Contains("ABCQRF", result);
         }
 
         [Test]
@@ -104,7 +105,8 @@ namespace Algorithms.Test.DynamicProgramming
             var sut = new LongestRepeatSequence();
             var test = "YA1234567AX";
             var lookup = new Dictionary<string, List<string>>();
-            var result = sut.PrintAll(test, test.Length, test.Length, lookup);
+            var lrs = new HashSet<string>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup, lrs);
             Assert.AreEqual(1, result.Count);
             Assert.Contains("A", result);
         }
@@ -115,9 +117,22 @@ namespace Algorithms.Test.DynamicProgramming
             var sut = new LongestRepeatSequence();
             var test = "ABA";
             var lookup = new Dictionary<string, List<string>>();
-            var result = sut.PrintAll(test, test.Length, test.Length, lookup);
+            var lrs = new HashSet<string>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup, lrs);
             Assert.AreEqual(1, result.Count);
             Assert.Contains("A", result);
+        }
+
+        [Test]
+        public void Test12()
+        {
+            var sut = new LongestRepeatSequence();
+            var test = "QARBFCOAQBRCF";
+            var lookup = new Dictionary<string, List<string>>();
+            var lrs = new HashSet<string>();
+            var result = sut.PrintAll(test, test.Length, test.Length, lookup, lrs);
+            Assert.AreEqual(8, result.Count);
+            Assert.Contains("ABC", result);
         }
     }
 }
