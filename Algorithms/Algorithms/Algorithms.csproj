@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\DiffUtility.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceLength.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubstring.cs" />
     <Compile Include="DynamicProgramming\LongestPalidromicSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequenceBottomUp.cs" />
+    <Compile Include="DynamicProgramming\ShortestCommonSupersequence.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="LinkedList\SingleLinkedList.cs" />
     <Compile Include="Printer.cs" />

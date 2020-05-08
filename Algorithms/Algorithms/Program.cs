@@ -13,12 +13,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var sut = new LongestRepeatedSubsequence();
-            var test = "QARBFCOAQBRCF";
-            var lookup = new Dictionary<string, List<string>>();
-            var lrs = new HashSet<string>();
-            var result = sut.PrintAll(test, test.Length, test.Length, lookup, lrs);            
-            RearrangeInSpecificMannerInLinearTime();
+            var sut = new ShortestCommonSupersequence();
+            var x = "AB";
+            var y = "A";
+            var lcs = sut.Length(x, y, x.Length, y.Length);
             Console.ReadKey();            
         }
 
