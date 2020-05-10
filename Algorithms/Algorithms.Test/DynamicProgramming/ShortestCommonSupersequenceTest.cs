@@ -15,7 +15,7 @@ namespace Algorithms.Test.DynamicProgramming
         {
             var sut = new ShortestCommonSupersequence();            
             var x = "AB";
-            var y = " A";
+            var y = "A";
             var lcs = sut.Length(x, y, x.Length, y.Length);
             Assert.AreEqual(2, lcs);
         }
