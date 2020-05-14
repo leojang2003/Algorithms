@@ -47,6 +47,7 @@
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceLength.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubstring.cs" />
+    <Compile Include="DynamicProgramming\LongestIncreasingSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestPalidromicSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequenceBottomUp.cs" />

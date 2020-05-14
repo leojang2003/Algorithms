@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\LongestIncreasingSubsequenceTest.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubstringTest.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceTest.cs" />
     <Compile Include="DynamicProgramming\LongestPalidromicSubsequenceTest.cs" />

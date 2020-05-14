@@ -13,16 +13,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            List<string> x1 = new List<string>();
-            x1.Add("a");
-            x1.Add("b");
+            //var x = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            //var lcs = new LongestIncreasingSubsequence();
+            //lcs.LIS(x, x.Length);
 
-            var temp = x1.Select(gooy => gooy + "V").ToList();
-
-            var sut = new ShortestCommonSupersequence();
-            var x = "AB";
-            var y = "A";
-            var lcs = sut.Length(x, y, x.Length, y.Length);
             Console.ReadKey();            
         }
 
