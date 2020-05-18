@@ -28,7 +28,7 @@ namespace Algorithms.DynamicProgramming
             var lookup = Lookup(A);
             var list = new List<int>();
             var max_index = -1;
-            var max_value = -1;
+            var max_value = -1; // debug found error, need to track both index and value
 
             for (int i = 0; i < lookup.Length; i++)
             {
