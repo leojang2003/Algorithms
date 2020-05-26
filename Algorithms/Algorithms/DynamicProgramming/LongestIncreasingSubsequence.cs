@@ -10,6 +10,27 @@ namespace Algorithms.DynamicProgramming
     {
         int[] p;
 
+        public int[] Sum(int[] A)
+        {
+            // sum[i] stores the maximum sum of the increasing subsequence that ends with A[i]
+            var sum = new int[A.Length];
+
+            sum[0] = A[0];
+
+            for(int i = 1; i < A.Length; i++)
+            {
+                for(int j = 0; j < i; j++)
+                {
+                    if (sum[i] < sum[j] && A[i] > A[j])
+                        sum[i] = sum[j];
+                }
+
+                sum[i] += A[i];
+            }
+
+            return sum;
+        }
+
         public int Length(int[] A)
         {
             var lookup = Lookup(A);
