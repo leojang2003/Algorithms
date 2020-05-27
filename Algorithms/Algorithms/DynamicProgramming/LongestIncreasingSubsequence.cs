@@ -10,7 +10,7 @@ namespace Algorithms.DynamicProgramming
     {
         int[] p;
 
-        public int[] Sum(int[] A)
+        public int Sum(int[] A)
         {
             // sum[i] stores the maximum sum of the increasing subsequence that ends with A[i]
             var sum = new int[A.Length];
@@ -28,7 +28,24 @@ namespace Algorithms.DynamicProgramming
                 sum[i] += A[i];
             }
 
-            return sum;
+            var max = Int32.MinValue;
+
+            for(int i = sum.Length - 1; i > 0; i--)
+            {
+                if (sum[i] > max)
+                    max = sum[i];
+            }
+
+            for (int i = sum.Length - 1; i > 0; i--)
+            {
+               if(sum[i] == max)
+                {
+                    Console.WriteLine(A[i]); // Print longest increasing maximum sum 
+                    max -= A[i];
+                }
+            }
+
+            return max; // return maximum sum
         }
 
         public int Length(int[] A)
