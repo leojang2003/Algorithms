@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DynamicProgramming\DiffUtility.cs" />
     <Compile Include="DynamicProgramming\EditDistance.cs" />
+    <Compile Include="DynamicProgramming\LargestSquareSubmatrix1.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceLength.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestCommonSubstring.cs" />

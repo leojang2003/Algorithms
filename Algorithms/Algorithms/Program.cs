@@ -17,6 +17,11 @@ namespace Algorithms
             //var lcs = new LongestIncreasingSubsequence();
             //lcs.LIS(x, x.Length);
 
+            var x = new int[6, 8];
+            x[0, 0] = 5;
+            var sut = new LargestSquareSubmatrix1();
+            var lookup = sut.Lookup(x);
+
             Console.ReadKey();            
         }
 
