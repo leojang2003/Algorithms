@@ -17,10 +17,47 @@ namespace Algorithms
             //var lcs = new LongestIncreasingSubsequence();
             //lcs.LIS(x, x.Length);
 
-            var x = new int[6, 8];
-            x[0, 0] = 5;
-            var sut = new LargestSquareSubmatrix1();
-            var lookup = sut.Lookup(x);
+            //var x = new int[6, 8];
+            //x[0, 0] = 5;
+            //var sut = new LargestSquareSubmatrix1();
+            //var lookup = sut.Lookup(x);
+
+            /*nt[,] test = new int*/
+
+            int[,] a = new int[5, 5];
+
+            a[0, 0] = 4;
+            a[0, 1] = 7;
+            a[0, 2] = 8;
+            a[0, 3] = 6;
+            a[0, 4] = 4;
+            
+            a[1, 0] = 6;
+            a[1, 1] = 7;
+            a[1, 2] = 3;
+            a[1, 3] = 9;
+            a[1, 4] = 2;
+            
+            a[2, 0] = 3;
+            a[2, 1] = 8;
+            a[2, 2] = 1;
+            a[2, 3] = 2;
+            a[2, 4] = 4;
+            
+            a[3, 0] = 7;
+            a[3, 1] = 1;
+            a[3, 2] = 7;
+            a[3, 3] = 3;
+            a[3, 4] = 7;
+            
+            a[4, 1] = 2;
+            a[4, 1] = 9;
+            a[4, 2] = 8;
+            a[4, 3] = 9;
+            a[4, 4] = 3;
+
+            var sut = new MinimumCost();
+            var lookup = sut.Lookup(a);
 
             Console.ReadKey();            
         }

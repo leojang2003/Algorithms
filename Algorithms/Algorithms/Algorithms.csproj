@@ -53,6 +53,7 @@
     <Compile Include="DynamicProgramming\LongestPalidromicSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequence.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequenceBottomUp.cs" />
+    <Compile Include="DynamicProgramming\MinimumCost.cs" />
     <Compile Include="DynamicProgramming\ShortestCommonSupersequence.cs" />
     <Compile Include="LinkedList\Node.cs" />
     <Compile Include="LinkedList\SingleLinkedList.cs" />
