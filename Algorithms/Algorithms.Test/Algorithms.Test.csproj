@@ -57,6 +57,7 @@
     <Compile Include="DynamicProgramming\LongestCommonSubsequenceTest.cs" />
     <Compile Include="DynamicProgramming\LongestPalidromicSubsequenceTest.cs" />
     <Compile Include="DynamicProgramming\LongestRepeatedSubsequenceTest.cs" />
+    <Compile Include="DynamicProgramming\MinimumCostTest.cs" />
     <Compile Include="DynamicProgramming\ShortestCommonSupersequenceTest.cs" />
     <Compile Include="LinkedList\RearrangeOddNodesFromEvenNodesTest.cs" />
     <Compile Include="LinkedList\RearrangeAlternatingHighLowTest.cs" />
