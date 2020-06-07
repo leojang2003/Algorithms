@@ -59,6 +59,13 @@ namespace Algorithms
             var sut = new MinimumCost();
             var lookup = sut.Lookup(a);
 
+            var sut2 = new _01Knapsack();
+            int[] A = new int[6] { 20, 5, 10, 40, 15, 25 };
+            int[] W = new int[6] { 1, 2, 3, 8, 7, 4 };
+            int threshold = 10;
+            var max = sut2.Maximum(A, W, 0, threshold);
+            //Assert.AreEqual(60, max);
+
             Console.ReadKey();            
         }
 

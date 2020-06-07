@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Test.LinkedList
 {
-    public class MinimumCostTest
+    public class _01KnapsackTest
     {
         [Test]
         public void Test1()
         {
-            var sut = new MinimumCost();
-            var a = new int[5, 5];
-
-
-            //var lcs = sut.Find("XXXXXX", "XXXXXX");
-            //Assert.AreEqual(1, lcs.Count);
-            //Assert.Contains("XXXXXX", lcs);
+            var sut = new _01Knapsack();
+            int[] A = new int[6] { 20, 5, 10, 40, 15, 25 };
+            int[] W = new int[6] {1, 2, 3, 8, 7, 4 };
+            int threshold = 10;
+            var max = sut.Maximum(A, W, 0, threshold);
+            Assert.AreEqual(60, max);
         }
+
         
     }
 }
