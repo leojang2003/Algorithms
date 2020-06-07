@@ -14,10 +14,16 @@ namespace Algorithms.DynamicProgramming
         {
             if (threshold <= 0 || a >= value.Length) return 0;
 
-            var with = value[a] + Maximum(value, weight, a + 1, threshold - weight[a]);
+            int with = 0;
 
+            if(weight[a] <= threshold) // debug found error
+            {
+                with = value[a] + Maximum(value, weight, a + 1, threshold - weight[a]);
+                Console.WriteLine($"with {a} = {with}");
+            }
             var without = Maximum(value, weight, a + 1, threshold);
-
+            Console.WriteLine($"without {a} = {without}");
+            
             return Math.Max(with, without);
 
         }
