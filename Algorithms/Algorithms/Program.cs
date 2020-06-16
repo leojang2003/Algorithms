@@ -13,6 +13,28 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
+            int[] input = new int[] { 3, 1, 1, 2, 2, 1 };
+            //int[] input = new int[] { 2,2,6,8,4,8,20,4,24,16,22,1,3,7,3,19,13,17,37 };
+            var sum = 0;
+            for(int i = 0; i < input.Length; i++)
+            {
+                sum += input[i];
+            }
+
+            if (sum % 2 != 0)
+                Console.WriteLine("Can't divide");
+            else
+                sum = sum / 2;
+
+            var group1 = new List<int>();
+            var group2 = new List<int>();
+
+            PartitionSum.Find(input, group1, group2, sum, sum, 0);
+
+            var result = PartitionSum.SubsetSum(input, 6, 5);
+
+
+
             //var x = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             //var lcs = new LongestIncreasingSubsequence();
             //lcs.LIS(x, x.Length);
@@ -24,46 +46,46 @@ namespace Algorithms
 
             /*nt[,] test = new int*/
 
-            int[,] a = new int[5, 5];
+            //int[,] a = new int[5, 5];
 
-            a[0, 0] = 4;
-            a[0, 1] = 7;
-            a[0, 2] = 8;
-            a[0, 3] = 6;
-            a[0, 4] = 4;
-            
-            a[1, 0] = 6;
-            a[1, 1] = 7;
-            a[1, 2] = 3;
-            a[1, 3] = 9;
-            a[1, 4] = 2;
-            
-            a[2, 0] = 3;
-            a[2, 1] = 8;
-            a[2, 2] = 1;
-            a[2, 3] = 2;
-            a[2, 4] = 4;
-            
-            a[3, 0] = 7;
-            a[3, 1] = 1;
-            a[3, 2] = 7;
-            a[3, 3] = 3;
-            a[3, 4] = 7;
-            
-            a[4, 1] = 2;
-            a[4, 1] = 9;
-            a[4, 2] = 8;
-            a[4, 3] = 9;
-            a[4, 4] = 3;
+            //a[0, 0] = 4;
+            //a[0, 1] = 7;
+            //a[0, 2] = 8;
+            //a[0, 3] = 6;
+            //a[0, 4] = 4;
 
-            var sut = new MinimumCost();
-            var lookup = sut.Lookup(a);
+            //a[1, 0] = 6;
+            //a[1, 1] = 7;
+            //a[1, 2] = 3;
+            //a[1, 3] = 9;
+            //a[1, 4] = 2;
 
-            var sut2 = new _01Knapsack();
-            int[] A = new int[6] { 20, 5, 10, 40, 15, 25 };
-            int[] W = new int[6] { 1, 2, 3, 8, 7, 4 };
-            int threshold = 12;
-            var max = sut2.Maximum(A, W, 0, threshold);
+            //a[2, 0] = 3;
+            //a[2, 1] = 8;
+            //a[2, 2] = 1;
+            //a[2, 3] = 2;
+            //a[2, 4] = 4;
+
+            //a[3, 0] = 7;
+            //a[3, 1] = 1;
+            //a[3, 2] = 7;
+            //a[3, 3] = 3;
+            //a[3, 4] = 7;
+
+            //a[4, 1] = 2;
+            //a[4, 1] = 9;
+            //a[4, 2] = 8;
+            //a[4, 3] = 9;
+            //a[4, 4] = 3;
+
+            //var sut = new MinimumCost();
+            //var lookup = sut.Lookup(a);
+
+            //var sut2 = new _01Knapsack();
+            //int[] A = new int[6] { 20, 5, 10, 40, 15, 25 };
+            //int[] W = new int[6] { 1, 2, 3, 8, 7, 4 };
+            //int threshold = 12;
+            //var max = sut2.Maximum(A, W, 0, threshold);
             //Assert.AreEqual(60, max);
 
             Console.ReadKey();            
