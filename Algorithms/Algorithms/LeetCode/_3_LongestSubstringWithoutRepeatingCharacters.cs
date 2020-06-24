@@ -57,8 +57,6 @@ namespace Algorithms.LeetCode
 
             return max;
         }
-		
-		// over LeetCode time limit
         // abcabcbb -> abc
         // bbbbb -> b
         // pwwkew -> wke
@@ -72,7 +70,7 @@ namespace Algorithms.LeetCode
             var len = new int[s.Length];
             int max = 1;
             len[0] = 1;
-            
+
             // add to key
             set.Add(s.ElementAt(0), 0);
 
@@ -90,7 +88,7 @@ namespace Algorithms.LeetCode
                 {
                     set.Add(s.ElementAt(i), i);
                 }
-                   
+
                 // Get the starting index for the longest no repeat substring ending at index i - 1                
                 var pre_start_index = (i - 1) - len[i - 1] + 1;
 
@@ -111,5 +109,133 @@ namespace Algorithms.LeetCode
 
             return max;
         }
+
+        // abcabcbb -> abc
+        // abcb 
+        // abcba
+        // abcbac
+        // abcbabcx
+        // abababx
+        // abcbx
+        // abcd efg d eqy
+        // abcd efg d abc
+        // abcd efg d qxc
+        // abcd efg d q b
+        // abcd efg d q g
+        // max = 7, 
+        // abc d efg d 123456789 b
+        // abcd efg a hqk
+        // bbbbb -> b
+        // pwwkew -> wke
+        // longest no repeat substring starts with index i
+        public int Find3(string s)
+        {
+            HashSet<char> set = new HashSet<char>();
+            HashSet<char> dupe_set = new HashSet<char>();
+            int max = 0;
+            int current = 0;
+            bool dupe_start = false;
+            Queue<char> queue = new Queue<char>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!set.Contains(s.ElementAt(i)))
+                {
+                    queue.Enqueue(s.ElementAt(i));
+                    set.Add(s.ElementAt(i));
+                    current++;
+                    if (current > max)
+                        max = current;
+                }
+                else
+                {
+                    if (!dupe_start) dupe_start = true;
+
+                    //var tmp = queue.Dequeue();
+                    //while(tmp != s.ElementAt(i))
+                    //{
+                    //    set.Remove(tmp);
+                    //    tmp = queue.Dequeue();
+                    //    current--;
+                    //}
+
+                    //queue.Enqueue(s.ElementAt(i));
+                }
+            }
+            return max;
+        }
+
+        // Runtime: 1768 ms, faster than 5.06% of C# online submissions for Longest Substring Without Repeating Characters.
+        // Memory Usage: 25.9 MB, less than 17.51% of C# online submissions for Longest Substring Without Repeating Characters.
+        public int Find4(string s)
+        {
+            if (s == "") return 0;
+
+            HashSet<char> set = new HashSet<char>();
+            int max = 0;
+            int current = 0;
+            bool dupe_found = false;
+            Queue<char> queue = new Queue<char>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!set.Contains(s.ElementAt(i)))
+                {
+                    if (dupe_found)
+                    {
+                        set.Clear();
+                        current = 0;
+                        int j = i;
+                        while (!set.Contains(s.ElementAt(j)))
+                        {
+                            set.Add(s.ElementAt(j));
+                            j--;
+                            current++;
+                        }
+                        dupe_found = false;
+                        if (current > max)
+                            max = current;
+                    }
+                    else
+                    {
+                        set.Add(s.ElementAt(i));
+                        current++;
+                        if (current > max)
+                            max = current;
+                    }
+                }
+                else
+                {
+                    if (!dupe_found) dupe_found = true;
+                }
+            }
+            return max;
+        }
+
+        public int Find5(string s)
+        {
+            int left_bound = 0;
+            var set = new Dictionary<char, int>();
+            int last_index = -1;
+            int[] len = new int[s.Length];
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                var found = set.TryGetValue(s.ElementAt(i), out last_index);
+
+                if (!found)
+                {
+                    set.Add(s.ElementAt(i), i);
+                }
+                else
+                {
+                    set[s.ElementAt(i)] = i;
+                    left_bound = last_index + 1;
+                }
+            }
+            
+
+        }
     }
+    
 }
