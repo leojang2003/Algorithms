@@ -171,26 +171,30 @@ namespace Algorithms.LeetCode
         {
             if (s == "") return 0;
 
-            HashSet<char> set = new HashSet<char>();
+            HashSet<string> set = new HashSet<string>();
             int max = 0;
             int current = 0;
             bool dupe_found = false;
-            Queue<char> queue = new Queue<char>();
-
+            
             for (int i = 0; i < s.Length; i++)
             {
-                if (!set.Contains(s.ElementAt(i)))
+				// Substring() 方法比 ElementAt() 的速度快很多
+                var target = s.Substring(i,1);
+
+                if (!set.Contains(target))
                 {
                     if (dupe_found)
                     {
                         set.Clear();
                         current = 0;
                         int j = i;
-                        while (!set.Contains(s.ElementAt(j)))
+                        var target2 = s.Substring(j, 1);
+                        while (!set.Contains(target2))
                         {
-                            set.Add(s.ElementAt(j));
+                            set.Add(target2);
                             j--;
                             current++;
+                            target2 = s.Substring(j, 1);
                         }
                         dupe_found = false;
                         if (current > max)
@@ -198,7 +202,7 @@ namespace Algorithms.LeetCode
                     }
                     else
                     {
-                        set.Add(s.ElementAt(i));
+                        set.Add(target);
                         current++;
                         if (current > max)
                             max = current;
@@ -212,30 +216,7 @@ namespace Algorithms.LeetCode
             return max;
         }
 
-        public int Find5(string s)
-        {
-            int left_bound = 0;
-            var set = new Dictionary<char, int>();
-            int last_index = -1;
-            int[] len = new int[s.Length];
-
-            for (int i = 0; i < s.Length; i++)
-            {
-                var found = set.TryGetValue(s.ElementAt(i), out last_index);
-
-                if (!found)
-                {
-                    set.Add(s.ElementAt(i), i);
-                }
-                else
-                {
-                    set[s.ElementAt(i)] = i;
-                    left_bound = last_index + 1;
-                }
-            }
-            
-
-        }
+        
     }
     
 }
