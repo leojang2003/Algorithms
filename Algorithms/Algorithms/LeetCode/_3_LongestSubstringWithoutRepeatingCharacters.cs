@@ -216,7 +216,83 @@ namespace Algorithms.LeetCode
             return max;
         }
 
-        
+        public int Find5(string s)
+        {
+            // __ __ __ __ D D D __ __ __
+            if (s == "") return 0;
+
+            HashSet<string> set = new HashSet<string>();
+            Queue<string> queue = new Queue<string>();
+            int max = 0;
+            int count = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                var target = s.Substring(i, 1);
+                queue.Enqueue(target);
+                count++;
+
+                if (!set.Contains(target))
+                {
+                    set.Add(target);
+                }
+                else
+                {
+                    var tmp = queue.Dequeue();
+                    count--;
+
+                    while (tmp != target)
+                    {
+                        count--;
+                        set.Remove(tmp);
+                        tmp = queue.Dequeue();
+                    }
+                }
+
+                if (count > max)
+                    max = count;
+            }
+            return max;
+        }
+		
+	// error on submission
+        public int Find6(string s)
+        {
+            // __ __ __ __ D D D __ __ __
+            if (s == "") return 0;
+
+            HashSet<string> set = new HashSet<string>();
+            string[] input = new string[s.Length];
+            int left = 0;
+            int max = 0;
+            int count = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                var target = s.Substring(i, 1);
+                input[i] = target;
+                count++;
+
+                if (!set.Contains(input[i]))
+                {
+                    set.Add(input[i]);
+                }
+                else
+                {                    
+                    count--;
+
+                    while (input[left] != input[i])
+                    {
+                        count--;
+                        left++;
+                    }
+                }
+
+                if (count > max)
+                    max = count;
+            }
+            return max;
+        }
     }
     
 }
