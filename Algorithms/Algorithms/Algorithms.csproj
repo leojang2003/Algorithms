@@ -58,6 +58,12 @@
     <Compile Include="DynamicProgramming\MinimumCost.cs" />
     <Compile Include="DynamicProgramming\PartitionSum.cs" />
     <Compile Include="DynamicProgramming\ShortestCommonSupersequence.cs" />
+    <Compile Include="LeetCode\Easy\ListNode.cs" />
+    <Compile Include="LeetCode\Easy\_21_MergeTwoSortedLists.cs" />
+    <Compile Include="LeetCode\Easy\_26_RemoveDuplicates.cs" />
+    <Compile Include="LeetCode\Easy\_27_Remove Element.cs" />
+    <Compile Include="LeetCode\Easy\_28_ImplementstrStr.cs" />
+    <Compile Include="LeetCode\Easy\_35_SearchInsertPosition.cs" />
     <Compile Include="LeetCode\_3_LongestSubstringWithoutRepeatingCharacters.cs" />
     <Compile Include="LeetCode\_5_LongestPalindromicSubstring.cs" />
     <Compile Include="LinkedList\Node.cs" />
